@@ -1,0 +1,14 @@
+/files
+/static/imgs
+/static/nav_imgs
+/static/renovation
+/static/type_of_building
+/static/type_of_walls
+/static/underground
+/trained_w
+/webfastapi-venv
+/__pycache__
+
+.dockerignore
+
+ready.json
