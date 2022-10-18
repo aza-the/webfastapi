@@ -1,4 +1,4 @@
-from .ml.ml import normal_int, run_preditcion_on_model
+from .ml import normal_int, run_preditcion_on_model
 
 def ml_call_prediction(
     district_l,

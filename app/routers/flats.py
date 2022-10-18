@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from app.schemas.flat_form import FlatForm
-from app.utils.ml_caller import ml_call_prediction
+from app.utils.ml.ml_caller import ml_call_prediction
 from pathlib import Path
 
 router = APIRouter(tags=['flats'])
