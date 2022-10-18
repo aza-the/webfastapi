@@ -7,13 +7,12 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-from make import *
+from . import make
 
-CHECKPOINT_PATH = "trained_w/cp.ckpt"
+CHECKPOINT_PATH = "./utils/ml/trained_w/cp.ckpt"
 LEARNING_RATE = 0.00006
 
 def normal_int(num):
-    
     num = int(num * 1000000)
     num = decimal.Decimal(int(num))
     return "{0:,}".format(num).replace(","," ")
@@ -44,22 +43,22 @@ def run_preditcion_on_model(
     type_of_building_dict: dict
     type_of_walls_dict: dict
 
-    with open('./files/distrcit_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/distrcit_dict.json') as file:
         district_dict = json.load(file)
 
-    with open('./files/fix_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/fix_dict.json') as file:
         fix_dict = json.load(file)
 
-    with open('./files/metro_get_type_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/metro_get_type_dict.json') as file:
         metro_get_type_dict = json.load(file)
 
-    with open('./files/metro_name_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/metro_name_dict.json') as file:
         metro_name_dict = json.load(file)
 
-    with open('./files/type_of_building_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/type_of_building_dict.json') as file:
         type_of_building_dict = json.load(file)
 
-    with open('./files/type_of_walls_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/type_of_walls_dict.json') as file:
         type_of_walls_dict = json.load(file)
 
     print(district)
@@ -86,7 +85,7 @@ def run_preditcion_on_model(
     model.load_weights(CHECKPOINT_PATH).expect_partial()
 
     mean_and_std = []
-    with open(FOLDER_PATH + "/mean_and_std.txt") as file:
+    with open(make.FOLDER_PATH + "/mean_and_std.txt") as file:
         mean_and_std = file.readlines()
 
     for i in range(len(mean_and_std)):
@@ -131,7 +130,7 @@ def train_model() -> None:
 
 
     flats = []
-    with open(CSV_VECTORIZED_FILE_NAME) as file:
+    with open(make.CSV_VECTORIZED_FILE_NAME) as file:
         reader = csv.reader(file)
         for row in reader:
             flats.append(np.array(row))
@@ -171,7 +170,7 @@ def train_model() -> None:
     test_data -= mean
     test_data /= std
 
-    with open(FOLDER_PATH + "/mean_and_std.txt", "w") as file:
+    with open(make.FOLDER_PATH + "/mean_and_std.txt", "w") as file:
         s = str(list(mean)) + '\n' + str(list(std))
         file.write(s)
 

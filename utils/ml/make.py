@@ -5,10 +5,10 @@ import os
 
 import numpy as np
 
-FOLDER_PATH = 'files'
-JSON_OF_RAW_DATA_FILE_NAME = 'ready.json'
-CSV_FILE_NAME = './files/flats.csv'
-CSV_VECTORIZED_FILE_NAME = './files/flats_v.csv'
+FOLDER_PATH = './utils/ml/files_for_ml'
+JSON_OF_RAW_DATA_FILE_NAME = './utils/ml/ready.json'
+CSV_FILE_NAME = f'./{FOLDER_PATH}/flats.csv'
+CSV_VECTORIZED_FILE_NAME = f'./{FOLDER_PATH}/flats_v.csv'
 
 
 def pre_main():
@@ -22,7 +22,6 @@ def pre_main():
         pass
 
     flats = {}
-
     with open(JSON_OF_RAW_DATA_FILE_NAME) as file:
         flats = json.load(file)
 
@@ -204,12 +203,12 @@ def make():
     type_of_walls_dict    = dict_maker(12, readed)
 
     file_names = [
-        './files/distrcit_dict.json',
-        './files/metro_name_dict.json', 
-        './files/metro_get_type_dict.json',
-        './files/fix_dict.json', 
-        './files/type_of_building_dict.json', 
-        './files/type_of_walls_dict.json',
+        f'./{FOLDER_PATH}/distrcit_dict.json',
+        f'./{FOLDER_PATH}/metro_name_dict.json', 
+        f'./{FOLDER_PATH}/metro_get_type_dict.json',
+        f'./{FOLDER_PATH}/fix_dict.json', 
+        f'./{FOLDER_PATH}/type_of_building_dict.json', 
+        f'./{FOLDER_PATH}/type_of_walls_dict.json',
     ]
     files = [
         distrcit_dict,
@@ -237,6 +236,3 @@ def make():
         writer = csv.writer(file)
         for i in readed:
             writer.writerow(i)
-
-pre_main()
-make()

@@ -3,9 +3,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from flat_form import FlatForm
+from schemas.flat_form import FlatForm
 
-from ml import run_preditcion_on_model, normal_int
+from utils.ml.ml import run_preditcion_on_model, normal_int
 
 app = FastAPI()
 
@@ -13,16 +13,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-@app.get('/test')
-async def get_test_root(request: Request):
-    return templates.TemplateResponse("index1.html", context={"request": request})
-
 @app.get('/')
-async def get_root_page(request: Request):
+async def get_flats_page(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
 @app.post('/')
-async def get_root_page(request: Request, form_data: FlatForm = Depends(FlatForm.as_form)):
+async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatForm.as_form)):
     #name of district
     district_l: str = form_data.district_l
 
