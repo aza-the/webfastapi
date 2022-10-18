@@ -1,0 +1,5 @@
+/webfastapi-venv
+/files
+/__pycache__
+/.vscode/
+ready.json

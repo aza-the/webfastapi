@@ -1,4 +1,4 @@
-from .flats import router as flats_router
+from app.routers.flats import router as flats_router
 
 list_of_routes = [flats_router]
 

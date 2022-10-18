@@ -5,10 +5,10 @@ import os
 
 import numpy as np
 
-FOLDER_PATH = './utils/ml/files_for_ml'
-JSON_OF_RAW_DATA_FILE_NAME = './utils/ml/ready.json'
-CSV_FILE_NAME = f'./{FOLDER_PATH}/flats.csv'
-CSV_VECTORIZED_FILE_NAME = f'./{FOLDER_PATH}/flats_v.csv'
+FOLDER_PATH = 'app/utils/ml/files_for_ml'
+JSON_OF_RAW_DATA_FILE_NAME = 'app/utils/ml/ready.json'
+CSV_FILE_NAME = f'{FOLDER_PATH}/flats.csv'
+CSV_VECTORIZED_FILE_NAME = f'{FOLDER_PATH}/flats_v.csv'
 
 
 def pre_main():

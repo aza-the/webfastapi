@@ -1,21 +1,22 @@
-from fastapi import APIRouter, Depends, FastAPI, Form, Request
+from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from schemas.flat_form import FlatForm
-from utils.ml_caller import ml_call_prediction
+from app.schemas.flat_form import FlatForm
+from app.utils.ml_caller import ml_call_prediction
+from pathlib import Path
 
 router = APIRouter(tags=['flats'])
 
-router.mount("/static", StaticFiles(directory="static"), name="static")
+router.mount("/app/static", StaticFiles(directory="app/static"), name="static")
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
-@router.get('/flats/')
+@router.get('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
-@router.post('/flats/')
+@router.post('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatForm.as_form)):
 
     prediction = ml_call_prediction(

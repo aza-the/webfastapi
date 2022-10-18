@@ -1,18 +1,14 @@
 
-/static/imgs
-/static/nav_imgs
-/static/renovation
-/static/type_of_building
-/static/type_of_walls
-/static/underground
-/utils/ml/trained_w
-/utils/ml/files_for_ml
+imgs
+nav_imgs
+renovation
+type_of_building
+type_of_walls
+underground
+trained_w
+files_for_ml
 /webfastapi-venv
-/__pycache__
 .vscode/
-
-.dockerignore
-
 ready.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,venv

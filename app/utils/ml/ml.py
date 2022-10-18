@@ -9,7 +9,7 @@ from tensorflow.keras import layers
 
 from . import make
 
-CHECKPOINT_PATH = "./utils/ml/trained_w/cp.ckpt"
+CHECKPOINT_PATH = "app/utils/ml/trained_w/cp.ckpt"
 LEARNING_RATE = 0.00006
 
 def normal_int(num):
