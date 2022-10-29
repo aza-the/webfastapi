@@ -11,6 +11,7 @@ files_for_ml
 .vscode/
 ready.json
 
+app/
 versions/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,venv
