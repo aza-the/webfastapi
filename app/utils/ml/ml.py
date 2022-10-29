@@ -1,6 +1,9 @@
 import csv
 import json
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
 import decimal
 import numpy as np
 import tensorflow as tf

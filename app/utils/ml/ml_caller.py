@@ -1,6 +1,10 @@
 from .ml import normal_int, run_preditcion_on_model
 
+from app.db.db import crud, schemas
+
+
 def ml_call_prediction(
+    db, 
     district_l,
     underground_l,
     underground_time,
@@ -144,6 +148,26 @@ def ml_call_prediction(
         type_of_building = building_type,
         type_of_walls = walls_type,
     )
+
+    dict_for_pydantic_model_flat = {
+        'district' : district_l,
+        'metro_name' : underground_l,
+        'metro_time' : underground_time,
+        'metro_get_type' : underground_type,
+        'size' : flat_size,
+        'kitchen' : kitchen_size,
+        'floor' : floor,
+        'floors' : floors,
+        'constructed' : constructed,
+        'fix' : renovation_type,
+        'type_of_building' : building_type,
+        'type_of_walls' : walls_type,
+        'price' : prediction*1000000, # multiplying by 1 000 000 to get price in millions
+    }
+
+    flat = schemas.Flat(**dict_for_pydantic_model_flat)
+
+    crud.create_record_flat(db, flat)
 
     prediction = str(normal_int(prediction))
 

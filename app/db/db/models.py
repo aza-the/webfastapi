@@ -1,16 +1,23 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float
 from .database import Base
 
-class Users(Base):
-    __tablename__ = 'users'
+class Flats(Base):
 
-    user_id = Column(Integer, primary_key=True)
-    first_name = Column(String, nullable=False)
-    last_name = Column(String, nullable=False)
+    __tablename__ = 'flats'
 
+    id = Column(Integer, primary_key=True, index=True)
 
-class Test(Base):
-    __tablename__ = 'tests'
+    district  = Column(String)
+    metro_name  = Column(String)
+    metro_time  = Column(String)
+    metro_get_type  = Column(String)
+    size  = Column(Float)
+    kitchen  = Column(Float)
+    floor  = Column(Integer)
+    floors  = Column(Integer)
+    constructed  = Column(Integer)
+    fix  = Column(String)
+    type_of_building  = Column(String)
+    type_of_walls  = Column(String)
 
-    test_id = Column(Integer, primary_key=True)
-    test = Column(String)
+    price = Column(Integer)
