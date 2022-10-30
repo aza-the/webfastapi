@@ -1,0 +1,109 @@
+
+
+/* TICKER  */
+.ticker {
+    overflow: hidden;
+}
+
+.scroll {
+    display: flex;
+}
+
+.ticker_item {
+    font-family: monospace; /* this is just for good looks */
+    color: #000;
+    font-size: 4.7em;
+    background: #fff;
+    white-space: nowrap;
+    font-weight: 1000;
+    text-transform: uppercase;
+    writing-mode: horizontal-tb;
+}
+
+#ticker_1 {
+    animation: animate 15s linear infinite;
+    animation-delay: -15s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+#ticker_2 {
+    animation: animate2 15s linear infinite;
+    animation-delay: -15s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.ticker_item span {
+    -webkit-text-stroke: 5px #418493;
+    color: transparent;
+}
+
+#first_ticker {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+#second_ticker {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+.main {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.col {
+    top: 40%;
+}
+
+.btn{
+    height: 65px;
+    font-size: 20px;
+}
+
+#btn1 {
+    width: 200px;
+}
+
+#btn2{
+    width: 100px;
+}
+
+.sign {
+    font-family: monospace; /* this is just for good looks */
+    font-size: 6em;
+    font-weight: 1000;
+    margin-top: 11%;
+}
+
+
+#dollar {
+    margin-left: 15%;
+    float: left;
+}
+
+#ruble {
+    margin-right: 15%;
+    float: right;
+}
