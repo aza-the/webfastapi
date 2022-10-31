@@ -1,16 +1,5 @@
 console.log("ROOT.JS started");
 
-// const press_that_button = document.getElementById("btn1");
-// press_that_button.addEventListener("click", () => {
-//     location.href = "flats";
-// }); 
-
-// const flats_btn = document.getElementById("btn2");
-// flats_btn.addEventListener("click", () => {
-//     location.href = "flats";
-// }); 
-
-
 var initialMouse = 0;
 var slideMovementTotal = 0;
 var mouseIsDown = false;
@@ -37,16 +26,17 @@ $(document.body, '#slider').on('mouseup touchend', function (event) {
 		return;
 	}
 	slider.addClass('unlocked');
-	$('#locker').text('lock_outline');
+	$('#locker').text('Loading...');
 	setTimeout(function(){
 		slider.on('click tap', function(event){
 			if (!slider.hasClass('unlocked'))
 				return;
 			slider.removeClass('unlocked');
-			$('#locker').text('lock_open');
+			$('#locker').text('Find out');
 			slider.off('click tap');
 		});
 	}, 0);
+	location.href = "flats";
 });
 
 $(document.body).on('mousemove touchmove', function(event){
