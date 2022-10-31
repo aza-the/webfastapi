@@ -1,0 +1,184 @@
+/* TICKER  */
+.ticker {
+    overflow: hidden;
+}
+
+.scroll {
+    display: flex;
+}
+
+.ticker_item {
+    font-family: monospace; /* this is just for good looks */
+    color: #000;
+    font-size: 4.7em;
+    background: #fff;
+    white-space: nowrap;
+    font-weight: 1000;
+    text-transform: uppercase;
+    writing-mode: horizontal-tb;
+}
+
+#ticker_1 {
+    animation: animate 15s linear infinite;
+    animation-delay: -15s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+#ticker_2 {
+    animation: animate2 15s linear infinite;
+    animation-delay: -15s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.ticker_item span {
+    -webkit-text-stroke: 5px #418493;
+    color: transparent;
+}
+
+#first_ticker {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+#second_ticker {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+.main {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.col {
+    top: 40%;
+}
+
+.btn{
+    height: 65px;
+    font-size: 20px;
+}
+
+#btn1 {
+    width: 200px;
+}
+
+#btn2{
+    width: 100px;
+}
+
+.sign {
+    font-family: monospace; /* this is just for good looks */
+    font-size: 6em;
+    font-weight: 1000;
+    margin-top: 15%;
+}
+
+
+#dollar {
+    margin-left: 15%;
+    float: left;
+}
+
+#ruble {
+    margin-right: 15%;
+    float: right;
+}
+
+
+/* swipe btn */
+
+$bgColor: #a1a1a2;
+$slideBgColor: rgba(255, 255, 255, 1);
+$slideBallColor: rgb(60, 60, 60);
+$slideBallIconColor: black;
+$slideTextColor: #3a3d55;
+
+@mixin center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin nonselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	@include center;
+}
+
+#button-background {
+	position: relative;
+	background-color: $bgColor;
+	width: 400px;
+	height: 80px;
+	border: white;
+	border-radius: 40px;
+	@include center;
+}
+
+#slider {
+	transition: width 0.3s, border-radius 0.3s, height 0.3s;
+	position: absolute;
+	left: -10px;
+	background-color: $slideBallColor;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	@include center;
+	&.unlocked {
+		transition: all 0.3s;
+		width: inherit;
+		left: 0 !important;
+		height: inherit;
+		border-radius: inherit;
+	}
+}
+
+.material-icons {
+	color: $slideBallIconColor;
+	font-size: 50px;
+	@include nonselect;
+}
+
+.slide-text {
+	color: $slideTextColor;
+	font-size: 24px;
+	text-transform: uppercase;
+	font-family: "Roboto", sans-serif;
+	@include nonselect;
+}

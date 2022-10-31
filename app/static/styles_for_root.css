@@ -1,109 +1,194 @@
-
-
 /* TICKER  */
 .ticker {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .scroll {
-    display: flex;
+  display: flex;
 }
 
 .ticker_item {
-    font-family: monospace; /* this is just for good looks */
-    color: #000;
-    font-size: 4.7em;
-    background: #fff;
-    white-space: nowrap;
-    font-weight: 1000;
-    text-transform: uppercase;
-    writing-mode: horizontal-tb;
+  font-family: monospace; /* this is just for good looks */
+  color: #000;
+  font-size: 4.7em;
+  background: #fff;
+  white-space: nowrap;
+  font-weight: 1000;
+  text-transform: uppercase;
+  -ms-writing-mode: lr-tb;
+      writing-mode: horizontal-tb;
 }
 
 #ticker_1 {
-    animation: animate 15s linear infinite;
-    animation-delay: -15s;
+  -webkit-animation: animate 15s linear infinite;
+          animation: animate 15s linear infinite;
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
 }
 
 @keyframes animate {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-200%);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+#ticker_2 {
+  -webkit-animation: animate2 15s linear infinite;
+          animation: animate2 15s linear infinite;
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
 }
 
-#ticker_2 {
-    animation: animate2 15s linear infinite;
-    animation-delay: -15s;
+@-webkit-keyframes animate2 {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes animate2 {
-    0% {
-        transform: translateX(-200%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
-
 .ticker_item span {
-    -webkit-text-stroke: 5px #418493;
-    color: transparent;
+  -webkit-text-stroke: 5px #418493;
+  color: transparent;
 }
 
 #first_ticker {
-    width: 100%;
-    position: absolute;
-    top: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
 }
 
 #second_ticker {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
-
-
 .main {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .col {
-    top: 40%;
+  top: 40%;
 }
 
-.btn{
-    height: 65px;
-    font-size: 20px;
+.btn {
+  height: 65px;
+  font-size: 20px;
 }
 
 #btn1 {
-    width: 200px;
+  width: 200px;
 }
 
-#btn2{
-    width: 100px;
+#btn2 {
+  width: 100px;
 }
 
 .sign {
-    font-family: monospace; /* this is just for good looks */
-    font-size: 6em;
-    font-weight: 1000;
-    margin-top: 11%;
+  font-family: monospace; /* this is just for good looks */
+  font-size: 6em;
+  font-weight: 1000;
+  margin-top: 15%;
 }
 
-
 #dollar {
-    margin-left: 15%;
-    float: left;
+  margin-left: 15%;
+  float: left;
 }
 
 #ruble {
-    margin-right: 15%;
-    float: right;
+  margin-right: 15%;
+  float: right;
 }
+
+/* swipe btn */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-background {
+  position: relative;
+  background-color: #a1a1a2;
+  width: 400px;
+  height: 80px;
+  border: white;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#slider {
+  transition: width 0.3s, border-radius 0.3s, height 0.3s;
+  position: absolute;
+  left: -10px;
+  background-color: rgb(60, 60, 60);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#slider.unlocked {
+  transition: all 0.3s;
+  width: inherit;
+  left: 0 !important;
+  height: inherit;
+  border-radius: inherit;
+}
+
+.material-icons {
+  color: black;
+  font-size: 50px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.slide-text {
+  color: #3a3d55;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}/*# sourceMappingURL=styles_for_root.css.map */
