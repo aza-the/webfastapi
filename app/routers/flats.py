@@ -23,6 +23,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request):
+    return templates.TemplateResponse("flats/indexrus.html", context={"request": request})
     return templates.TemplateResponse("flats/index.html", context={"request": request})
 
 @router.post('/flats/', response_class=HTMLResponse)
@@ -59,4 +60,5 @@ async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatFor
         form_data.walls_c_idk,
     )
 
+    return templates.TemplateResponse("flats/prediction_responserus.html", context={'request': request, 'prediction': prediction})
     return templates.TemplateResponse("flats/prediction_response.html", context={'request': request, 'prediction': prediction})
