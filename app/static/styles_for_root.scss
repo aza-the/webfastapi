@@ -63,6 +63,7 @@
     bottom: 0;
 }
 
+
 .main {
     position: absolute;
     height: 100%;
@@ -79,20 +80,7 @@
     font-size: 20px;
 }
 
-#btn1 {
-    width: 200px;
-}
 
-#btn2{
-    width: 100px;
-}
-
-.sign {
-    font-family: monospace; /* this is just for good looks */
-    font-size: 6em;
-    font-weight: 1000;
-    text-align: center;
-}
 
 
 #dollar {
@@ -105,85 +93,190 @@
 }
 
 
-/* swipe btn */
+@media (min-width: 800px){
+    /* swipe btn */
 
-$bgColor: #cbcbcb;
-$slideBgColor: rgba(255, 255, 255, 1);
-$slideBallColor: rgb(60, 60, 60);
-$slideBallIconColor: black;
-$slideTextColor: rgba(38, 38, 38, 0.494);
-    
-@mixin center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    $bgColor: #cbcbcb;
+    $slideBgColor: rgba(255, 255, 255, 1);
+    $slideBallColor: rgb(60, 60, 60);
+    $slideBallIconColor: black;
+    $slideTextColor: rgba(38, 38, 38, 0.494);
+        
+    @mixin center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @mixin nonselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
+
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        @include center;
+    }
+
+    #button-background {
+        position: relative;
+        background-color: $bgColor;
+        width: 400px;
+        height: 80px;
+        border: rgb(34, 34, 34);
+        border-radius: 10px;
+        @include center;
+    }
+
+    #slider {
+        transition: width 0.3s, border-radius 0.3s, height 0.3s;
+        position: absolute;
+        left: -10px;
+        background-color: $slideBallColor;
+        width: 80px;
+        height: 82px;
+        border-radius: 10px;
+        @include center;
+        &.unlocked {
+            transition: all 0.3s;
+            width: inherit;
+            left: 0 !important;
+            height: inherit;
+            border-radius: inherit;
+        }
+    }
+
+    .material-icons {
+        color: $slideBallIconColor;
+        font-size: 50px;
+        @include nonselect;
+    }
+
+    .slide-text {
+        color: $slideTextColor;
+        font-size: 30px;
+        text-transform: uppercase;
+        font-family: monospace, "Roboto", sans-serif;
+        @include nonselect;
+    }
+
+    #locker {
+        margin: auto;
+        font-family: monospace;
+        color: white;
+        font-size: 1em;
+    }
+
+    // * sdollar and ruble 
+    .sign {
+        font-family: monospace; /* this is just for good looks */
+        font-size: 6em;
+        font-weight: 1000;
+        text-align: center;
+    }
+
 }
 
-@mixin nonselect {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	cursor: default;
-}
+@media (max-width: 800px){
+    /* swipe btn */
 
-html,
-body {
-	height: 100%;
-	overflow: hidden;
-}
+    $bgColor: #cbcbcb;
+    $slideBgColor: rgba(255, 255, 255, 1);
+    $slideBallColor: rgb(60, 60, 60);
+    $slideBallIconColor: black;
+    $slideTextColor: rgba(38, 38, 38, 0.494);
+        
+    @mixin center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-body {
-	@include center;
-}
+    @mixin nonselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
 
-#button-background {
-	position: relative;
-	background-color: $bgColor;
-	width: 400px;
-	height: 80px;
-	border: rgb(34, 34, 34);
-	border-radius: 10px;
-	@include center;
-}
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
 
-#slider {
-	transition: width 0.3s, border-radius 0.3s, height 0.3s;
-	position: absolute;
-	left: -10px;
-	background-color: $slideBallColor;
-	width: 82px;
-	height: 82px;
-	border-radius: 10px;
-	@include center;
-	&.unlocked {
-		transition: all 0.3s;
-		width: inherit;
-		left: 0 !important;
-		height: inherit;
-		border-radius: inherit;
-	}
-}
+    body {
+        @include center;
+    }
 
-.material-icons {
-	color: $slideBallIconColor;
-	font-size: 50px;
-	@include nonselect;
-}
+    #button-background {
+        position: relative;
+        background-color: $bgColor;
+        width: 200px;
+        height: 40px;
+        border: rgb(34, 34, 34);
+        border-radius: 10px;
+        @include center;
+    }
 
-.slide-text {
-	color: $slideTextColor;
-	font-size: 30px;
-	text-transform: uppercase;
-	font-family: monospace, "Roboto", sans-serif;
-	@include nonselect;
-}
+    #slider {
+        transition: width 0.3s, border-radius 0.3s, height 0.3s;
+        position: absolute;
+        left: -10px;
+        background-color: $slideBallColor;
+        width: 40px;
+        height: 42px;
+        border-radius: 10px;
+        @include center;
+        &.unlocked {
+            transition: all 0.3s;
+            width: inherit;
+            left: 0 !important;
+            height: inherit;
+            border-radius: inherit;
+        }
+    }
 
-#locker {
-    margin: auto;
-    font-family: monospace;
-    color: white;
-    font-size: 1em;
+    .material-icons {
+        color: $slideBallIconColor;
+        font-size: 25px;
+        @include nonselect;
+    }
+
+    .slide-text {
+        color: $slideTextColor;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: monospace, "Roboto", sans-serif;
+        @include nonselect;
+    }
+
+    #locker {
+        margin: auto;
+        font-family: monospace;
+        color: white;
+        font-size: 0.8em;
+    }
+
+    // * sdollar and ruble 
+    .sign {
+        font-family: monospace; /* this is just for good looks */
+        font-size: 3em;
+        font-weight: 1000;
+        text-align: center;
+    }
+
 }

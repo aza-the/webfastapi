@@ -21,5 +21,3 @@ async def custom_404_handler(request: Request, __):
 @app.get('/', response_class=HTMLResponse)
 async def get_root(request: Request):
     return templates.TemplateResponse("rootrus.html", context={"request": request})
-
-
