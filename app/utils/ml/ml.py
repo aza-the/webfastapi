@@ -15,7 +15,7 @@ from . import make
 CHECKPOINT_PATH = "app/utils/ml/trained_w/cp.ckpt"
 LEARNING_RATE = 0.00006
 
-def normal_int(num):
+def normal_int(num: int | float):
     num = int(num * 1000000)
     num = decimal.Decimal(int(num))
     return "{0:,}".format(num).replace(","," ")
@@ -25,15 +25,15 @@ def run_preditcion_on_model(
     metro_name: str,
     metro_time: int,
     metro_get_type: str,
-    size: int,
-    kitchen: int,
-    floor: float,
-    floors: float,
+    size: float,
+    kitchen: float,
+    floor: int,
+    floors: int,
     constructed: int,
     fix: str,
     type_of_building: str,
     type_of_walls: str,
-):
+) -> float:
     """ 
         Gets a 'list' of parameters of a flat and 
         then makes a predictions based on the trained weights.

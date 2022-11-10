@@ -1,5 +1,9 @@
 console.log("MAINSCRIPT.JS started");
 
+const load_button = document.getElementById("load");
+load_button.addEventListener("click", () => {
+    location.href = "/flats/fileupload/";
+})
 
 const about = document.getElementById("about");
 const about_img = document.getElementById("about_img");
