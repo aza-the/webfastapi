@@ -177,6 +177,20 @@
     width: 100px;
 }
 
+#backlink {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: 2s;
+}
+
+#backlink:hover {
+    color: #262626;
+}
+
 /* TICKER  */
 .ticker {
     margin-left: 270px; /* should be equal to width of .sidenav */

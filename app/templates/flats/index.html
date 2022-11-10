@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Font awesome 5-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/flats/styles.css') }}">
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -42,7 +42,7 @@
         <form method="post">
 
             <div class="content_div" id="about_main_div">
-                <img class="nav_img" id="about_img" src="{{ url_for('static', path='/nav_imgs/about.png') }}" alt="about">
+                <img class="nav_img" id="about_img" src="{{ url_for('static', path='/images/nav_imgs_en/about.png') }}" alt="about">
                 <br><br>
                 <p class="about_text">
                     This web app was developed by student 
@@ -57,9 +57,9 @@
             <br><br>
 
             <div class="content_div" id="district_main_div">
-                <img class="nav_img" id="district_img" src="{{ url_for('static', path='/nav_imgs/district.png') }}" alt="district">
+                <img class="nav_img" id="district_img" src="{{ url_for('static', path='/images/nav_imgs_en/district.png') }}" alt="district">
                 <br> 
-                <img class="nav_img" id="ds_img" src="{{ url_for('static', path='/imgs/district_img.png') }} " alt="about">
+                <img class="nav_img" id="ds_img" src="{{ url_for('static', path='/images/imgs_en/district_img.png') }} " alt="about">
                 <div class="und_div">
                     <label for="district_l" class="label_class">Type the location of your flat</label>
                     <input class="form-control" type="text" name="district_l" list="district_list" placeholder="р-н Западный">
@@ -559,9 +559,9 @@
             <br><br>
 
             <div class="content_div" id="underground_main_div">
-                <img class="nav_img" id="underground_img" src="{{ url_for('static', path='/nav_imgs/underground.png') }}" alt="underground">
+                <img class="nav_img" id="underground_img" src="{{ url_for('static', path='/images/nav_imgs_en/underground.png') }}" alt="underground">
                 <for_label_and_inputbr>
-                <img class="nav_img" id="und_img" src="{{ url_for('static', path='/underground/underground.png') }}" alt="about">
+                <img class="nav_img" id="und_img" src="{{ url_for('static', path='/images/underground_en/underground.png') }}" alt="about">
                 <br>
                 <div class="und_div">
                     <div class="for_label_and_input">
@@ -870,7 +870,7 @@
                             <div class="checkbox_div">
                                 <input class="checkbox_class" name="underground_c_by_foot" type="checkbox" id="underground_c_by_foot" />
                                 <label for="underground_c_by_foot">
-                                    <img class="checkbox_img" id="underground_img_by_foot" src="{{ url_for('static', path='/underground/by_foot.png') }}" />
+                                    <img class="checkbox_img" id="underground_img_by_foot" src="{{ url_for('static', path='/images/underground_en/by_foot.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -878,7 +878,7 @@
                             <div class="checkbox_div">
                                 <input class="checkbox_class" type="checkbox" name="underground_c_by_transport" id="underground_c_by_transport" />
                                 <label for="underground_c_by_transport">
-                                    <img class="checkbox_img" id="underground_img_by_transport" src="{{ url_for('static', path='/underground/by_transport.png') }}" />
+                                    <img class="checkbox_img" id="underground_img_by_transport" src="{{ url_for('static', path='/images/underground_en/by_transport.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -891,9 +891,9 @@
             <br><br>
 
             <div class="content_div" id="flat_main_div">
-                <img class="nav_img" id="flat_sizes_img" src="{{ url_for('static', path='/nav_imgs/flat_sizes.png') }}" alt="flat_sizes">
+                <img class="nav_img" id="flat_sizes_img" src="{{ url_for('static', path='/images/nav_imgs_en/flat_sizes.png') }}" alt="flat_sizes">
                 <br>
-                <img class="add_img" src="{{ url_for('static', path='/imgs/sqrm.png') }}" alt="about">
+                <img class="add_img" src="{{ url_for('static', path='/images/imgs_en/sqrm.png') }}" alt="about">
                 <br><br>
                 <div class="flat_div">
                     <div class="for_label_and_input">
@@ -912,14 +912,14 @@
             <br><br>
 
             <div class="content_div" id="renovation_main_div">
-                <img class="nav_img" id="renovation_img" src="{{ url_for('static', path='/nav_imgs/renovation.png') }}" alt="renovation">
+                <img class="nav_img" id="renovation_img" src="{{ url_for('static', path='/images/nav_imgs_en/renovation.png') }}" alt="renovation">
                 <table class="checkbox_table">
                     <tr>
                         <td>
                             <div class="checkbox_div">
                                 <input name="renovation_c_renovation" class="checkbox_class" type="checkbox" id="renovation_c_renovation" />
                                 <label for="renovation_c_renovation">
-                                    <img class="checkbox_img" id="renovation_img_renovation" src="{{ url_for('static', path='/renovation/renovation.png') }}" />
+                                    <img class="checkbox_img" id="renovation_img_renovation" src="{{ url_for('static', path='/images/renovation_en/renovation.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -927,7 +927,7 @@
                             <div class="checkbox_div">
                                 <input name="renovation_c_cosmetic" class="checkbox_class" type="checkbox" id="renovation_c_cosmetic" />
                                 <label for="renovation_c_cosmetic">
-                                    <img class="checkbox_img" id="renovation_img_cosmetic" src="{{ url_for('static', path='/renovation/cosmetic_renovation.png') }}" />
+                                    <img class="checkbox_img" id="renovation_img_cosmetic" src="{{ url_for('static', path='/images/renovation_en/cosmetic_renovation.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -935,7 +935,7 @@
                             <div class="checkbox_div">
                                 <input name="renovation_c_designer" class="checkbox_class" type="checkbox" id="renovation_c_designer" />
                                 <label for="renovation_c_designer">
-                                    <img class="checkbox_img" id="renovation_img_designer" src="{{ url_for('static', path='/renovation/designer_renovation.png') }}" />
+                                    <img class="checkbox_img" id="renovation_img_designer" src="{{ url_for('static', path='/images/renovation_en/designer_renovation.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -943,7 +943,7 @@
                             <div class="checkbox_div">
                                 <input name="renovation_c_no" class="checkbox_class" type="checkbox" id="renovation_c_no" />
                                 <label for="renovation_c_no">
-                                    <img class="checkbox_img" id="renovation_img_no" src="{{ url_for('static', path='/renovation/no_renovation.png') }}" />
+                                    <img class="checkbox_img" id="renovation_img_no" src="{{ url_for('static', path='/images/renovation_en/no_renovation.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -956,9 +956,9 @@
             <br><br>
             
             <div class="content_div" id="building_main_div">
-                <img class="nav_img" id="about_building_img" src="{{ url_for('static', path='/nav_imgs/about_building.png') }}" alt="about_building">
+                <img class="nav_img" id="about_building_img" src="{{ url_for('static', path='/images/nav_imgs_en/about_building.png') }}" alt="about_building">
                 <br>
-                <img class="add_img" id="" src="{{ url_for('static', path='/imgs/constr.png') }}" alt="">
+                <img class="add_img" id="" src="{{ url_for('static', path='/images/imgs_en/constr.png') }}" alt="">
                 <br>
                 <div class="build_div">      
 
@@ -979,14 +979,14 @@
             <br><br>
 
             <div class="content_div" id="typeBuild_main_div">
-                <img class="nav_img" id="type_of_building_img" src="{{ url_for('static', path='/nav_imgs/type_of_building.png') }}" alt="type_of_building">
+                <img class="nav_img" id="type_of_building_img" src="{{ url_for('static', path='/images/nav_imgs_en/type_of_building.png') }}" alt="type_of_building">
                 <table class="checkbox_table">
                     <tr>
                         <td>
                             <div class="checkbox_div">
                                 <input name="building_c_block_construction" class="checkbox_class" type="checkbox" id="building_c_block_construction" />
                                 <label for="building_c_block_construction">
-                                    <img class="checkbox_img" id="building_img_block_construction" src="{{ url_for('static', path='/type_of_building/block_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_block_construction" src="{{ url_for('static', path='/images/type_of_building_en/block_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -994,7 +994,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_brick_construction" class="checkbox_class" type="checkbox" id="building_c_brick_construction" />
                                 <label for="building_c_brick_construction">
-                                    <img class="checkbox_img" id="building_img_brick_construction" src="{{ url_for('static', path='/type_of_building/brick_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_brick_construction" src="{{ url_for('static', path='/images/type_of_building_en/brick_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1002,7 +1002,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_foam_concrete_construction" class="checkbox_class" type="checkbox" id="building_c_foam_concrete_construction" />
                                 <label for="building_c_foam_concrete_construction">
-                                    <img class="checkbox_img" id="building_img_foam_concrete_construction" src="{{ url_for('static', path='/type_of_building/foam_concrete_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_foam_concrete_construction" src="{{ url_for('static', path='/images/type_of_building_en/foam_concrete_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1010,7 +1010,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_monolith_brick_construction" class="checkbox_class" type="checkbox" id="building_c_monolith_brick_construction" />
                                 <label for="building_c_monolith_brick_construction">
-                                    <img class="checkbox_img" id="building_img_monolith_brick_construction" src="{{ url_for('static', path='/type_of_building/monolith_brick_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_monolith_brick_construction" src="{{ url_for('static', path='/images/type_of_building_en/monolith_brick_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1018,7 +1018,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_monolith_construction" class="checkbox_class" type="checkbox" id="building_c_monolith_construction" />
                                 <label for="building_c_monolith_construction">
-                                    <img class="checkbox_img" id="building_img_monolith_construction" src="{{ url_for('static', path='/type_of_building/monolith_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_monolith_construction" src="{{ url_for('static', path='/images/type_of_building_en/monolith_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1030,7 +1030,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_panel_construction" class="checkbox_class" type="checkbox" id="building_c_panel_construction" />
                                 <label for="building_c_panel_construction">
-                                    <img class="checkbox_img" id="building_img_panel_construction" src="{{ url_for('static', path='/type_of_building/panel_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_panel_construction" src="{{ url_for('static', path='/images/type_of_building_en/panel_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1038,7 +1038,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_stalins_construction" class="checkbox_class" type="checkbox" id="building_c_stalins_construction" />
                                 <label for="building_c_stalins_construction">
-                                    <img class="checkbox_img" id="building_img_stalins_construction" src="{{ url_for('static', path='/type_of_building/stalins_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_stalins_construction" src="{{ url_for('static', path='/images/type_of_building_en/stalins_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1046,7 +1046,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_wooden_construction" class="checkbox_class" type="checkbox" id="building_c_wooden_construction" />
                                 <label for="building_c_wooden_construction">
-                                    <img class="checkbox_img" id="building_img_wooden_construction" src="{{ url_for('static', path='/type_of_building/wooden_construction.png') }}" />
+                                    <img class="checkbox_img" id="building_img_wooden_construction" src="{{ url_for('static', path='/images/type_of_building_en/wooden_construction.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1054,7 +1054,7 @@
                             <div class="checkbox_div">
                                 <input name="building_c_idk" class="checkbox_class" type="checkbox" id="building_c_idk" />
                                 <label for="building_c_idk">
-                                    <img class="checkbox_img" id="building_img_idk" src="{{ url_for('static', path='/type_of_building/idk.png') }}" />
+                                    <img class="checkbox_img" id="building_img_idk" src="{{ url_for('static', path='/images/type_of_building_en/idk.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1067,14 +1067,14 @@
             <br><br>
 
             <div class="content_div" id="walls_main_div">
-                <img class="nav_img" id="type_of_walls_img" src="{{ url_for('static', path='/nav_imgs/type_of_walls.png') }}" alt="type_of_walls">
+                <img class="nav_img" id="type_of_walls_img" src="{{ url_for('static', path='/images/nav_imgs_en/type_of_walls.png') }}" alt="type_of_walls">
                 <table class="checkbox_table">
                     <tr>
                         <td>
                             <div class="checkbox_div">
                                 <input name="walls_c_mixed_walls" class="checkbox_class" type="checkbox" id="walls_c_mixed_walls" />
                                 <label for="walls_c_mixed_walls">
-                                    <img class="checkbox_img" id="walls_img_mixed_walls" src="{{ url_for('static', path='/type_of_walls/mixed_walls.png') }}" />
+                                    <img class="checkbox_img" id="walls_img_mixed_walls" src="{{ url_for('static', path='/images/type_of_walls_en/mixed_walls.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1082,7 +1082,7 @@
                             <div class="checkbox_div">
                                 <input name="walls_c_reinforced_concrete_walls" class="checkbox_class" type="checkbox" id="walls_c_reinforced_concrete_walls" />
                                 <label for="walls_c_reinforced_concrete_walls">
-                                    <img class="checkbox_img" id="walls_img_reinforced_concrete_walls" src="{{ url_for('static', path='/type_of_walls/reinforced_concrete_walls.png') }}" />
+                                    <img class="checkbox_img" id="walls_img_reinforced_concrete_walls" src="{{ url_for('static', path='/images/type_of_walls_en/reinforced_concrete_walls.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1090,7 +1090,7 @@
                             <div class="checkbox_div">
                                 <input name="walls_c_wooden_walls" class="checkbox_class" type="checkbox" id="walls_c_wooden_walls" />
                                 <label for="walls_c_wooden_walls">
-                                    <img class="checkbox_img" id="walls_img_wooden_walls" src="{{ url_for('static', path='/type_of_walls/wooden_walls.png') }}" />
+                                    <img class="checkbox_img" id="walls_img_wooden_walls" src="{{ url_for('static', path='/images/type_of_walls_en/wooden_walls.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1098,7 +1098,7 @@
                             <div class="checkbox_div">
                                 <input name="walls_c_idk" class="checkbox_class" type="checkbox" id="walls_c_idk" />
                                 <label for="walls_c_idk">
-                                    <img class="checkbox_img" id="walls_img_idk" src="{{ url_for('static', path='/type_of_walls/idk.png') }}" />
+                                    <img class="checkbox_img" id="walls_img_idk" src="{{ url_for('static', path='/images/type_of_walls_en/idk.png') }}" />
                                 </label>
                             </div>
                         </td>
@@ -1113,7 +1113,7 @@
         </form>
     </div>
 
-    <script src="{{ url_for('static', path='/mainscript.js') }}"></script>
+    <script src="{{ url_for('static', path='/flats/mainscript.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

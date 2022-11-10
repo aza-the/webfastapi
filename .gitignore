@@ -1,17 +1,13 @@
 df_to_excel.xlsx
 
-imgs
-nav_imgs
-renovation
-type_of_building
-type_of_walls
-underground
+images
+
 trained_w
 files_for_ml
-/webfastapi-venv
-.vscode/
 ready.json
 
+/webfastapi-venv
+.vscode/
 versions/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,venv

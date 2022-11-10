@@ -165,9 +165,12 @@ def ml_call_prediction(
         'price' : prediction*1000000, # multiplying by 1 000 000 to get price in millions
     }
 
-    flat = schemas.Flat(**dict_for_pydantic_model_flat)
+    try:
+        flat = schemas.Flat(**dict_for_pydantic_model_flat)
+        crud.create_record_flat(db, flat)
+    except Exception as ex:
+        print(ex, "POSTGRES OFF HIGH PROBABILITY")
 
-    crud.create_record_flat(db, flat)
 
     prediction = str(normal_int(prediction))
 
