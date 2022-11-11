@@ -1,9 +1,12 @@
-from app.utils.ml.ml import run_preditcion_on_model
 import pandas as pd
+
+from app.db.db import crud, schemas
+from app.utils.ml.ml import run_preditcion_on_model
+
 from .ml import normal_int
 
 
-def read_df(df: pd.DataFrame) -> pd.DataFrame:
+def read_df(df: pd.DataFrame, db) -> pd.DataFrame:
     predictions = list()
 
     for index, row in df.iterrows():
@@ -19,9 +22,31 @@ def read_df(df: pd.DataFrame) -> pd.DataFrame:
             row['constructed'],	
             row['fix'],	
             row['type_of_building'],	
-            row['type_of_walls']
+            row['type_of_walls'],
         )
         predictions.append(normal_int(prediction[0]))
+
+        dict_for_pydantic_model_flat = {
+            'district'         : row['district'],	
+            'metro_name'       : row['metro_name'],	
+            'metro_time'       : row['metro_time'],	
+            'metro_get_type'   : row['metro_get_type'],	
+            'size'             : row['size'],	
+            'kitchen'          : row['kitchen'],	
+            'floor'            : row['floor'],	
+            'floors'           : row['floors'],	
+            'constructed'      : row['constructed'],	
+            'fix'              : row['fix'],	
+            'type_of_building' : row['type_of_building'],	
+            'type_of_walls'    : row['type_of_walls'],
+            'price'            : prediction*1000000, # multiplying by 1 000 000 to get price in millions
+        }
+
+        try:
+            flat = schemas.Flat(**dict_for_pydantic_model_flat)
+            crud.create_record_flat(db, flat)
+        except Exception as ex:
+            print(ex, "POSTGRES OFF HIGH PROBABILITY")
 
     df['prediction'] = predictions
 

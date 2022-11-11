@@ -1,6 +1,6 @@
-from .ml import normal_int, run_preditcion_on_model
-
 from app.db.db import crud, schemas
+
+from .ml import normal_int, run_preditcion_on_model
 
 
 def ml_call_prediction(

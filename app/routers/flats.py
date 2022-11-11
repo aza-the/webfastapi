@@ -1,6 +1,6 @@
 import pandas as pd
 from fastapi import APIRouter, Depends, Request, UploadFile
-from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -71,10 +71,10 @@ async def create_file(request: Request):
     return templates.TemplateResponse('flats/create_file.html', context={'request': request})
 
 @router.post("/flats/fileupload")
-async def create_upload_file(request: Request, file: UploadFile):
+async def create_upload_file(request: Request, file: UploadFile, db: Session = Depends(get_db)):
     content = await file.read()
     df = pd.read_excel(content)
-    df = read_df(df)
+    df = read_df(df, db)
 
     df.to_excel('app/static/flats/file_transfer/df_to_excel.xlsx', index=False, header=True)
 
