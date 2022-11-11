@@ -1,15 +1,52 @@
-.mainform {
+html, body {
     width: 100%;
+    height: 100%;
+}
+
+.mainform {
+    width: auto;
     height: 100%;
     display: table;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mainform > .centered {
     display: table-cell;
     vertical-align: middle;
-    height: 500px;
-    width: 400px;
+    width: auto;
+}
+
+.leftside { 
+    padding: 10px;
+    width: 40%;
+    display: table-cell;
+    background-color: #c2c3c3;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: solid 2px #5a5a5a;
+    border-right: none;
+}
+
+.leftside p {
+    font-size: 1.7em;
+}
+
+.leftside input {
+    background-color: #555555;
+    border-color: #555555;
+    margin-top: 79px;
+}
+
+.rightside {
+    padding: 10px;
+    display: table-cell;
+    background-color: #ffffff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: solid 2px #5a5a5a;
+    border-left: none;
 }
  
 #back {
@@ -28,7 +65,7 @@
 }
 
 .form-control {
-    width: 270px;
+    width: 250px;
     height: 100%;
     margin-left: auto;
     margin-right: auto;

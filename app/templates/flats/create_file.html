@@ -16,20 +16,29 @@
 
     <input class="btn btn-success" id="back" type="button" value="Назад">
 
-    <form method="post" enctype="multipart/form-data">
+    <div class="mainform">
+        <div class="centered">
 
-        <div class="mainform">
-            <div class="centered">
-                <p>Загрузите ваш файл</p>
-                <div class="mb-3">
-                    <input class="form-control" type="file" name="file">
-                </div>
-        
-                <input class="btn btn-success" type="submit" value="Отправить">
+            <div class="leftside">
+                <p>Каким должен <br> быть ваш файл</p>
+                <input class="btn btn-success" id="example" type="button" value="Пример">
             </div>
-        </div>
 
-    </form>
+            <div class="rightside">
+                <form method="post" enctype="multipart/form-data">
+
+                    <p>Загрузите ваш файл</p>
+                    <div class="mb-3">
+                        <input class="form-control" type="file" name="file">
+                    </div>
+            
+                    <input class="btn btn-success" type="submit" value="Отправить">
+    
+                </form>
+            </div>
+        
+        </div>
+    </div>
 
     <script src="{{ url_for('static', path='/flats/upload.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -24,13 +24,14 @@ router.mount("/app/static", StaticFiles(directory="app/static"), name="static")
 
 templates = Jinja2Templates(directory="app/templates")
 
+
 @router.get('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request):
     return templates.TemplateResponse("flats/indexrus.html", context={"request": request})
 
+
 @router.post('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatForm.as_form), db: Session = Depends(get_db)):
-
     prediction = ml_call_prediction(
         db, 
         form_data.district_l,
@@ -61,21 +62,25 @@ async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatFor
         form_data.walls_c_wooden_walls,
         form_data.walls_c_idk,
     )
-
     return templates.TemplateResponse("flats/prediction_responserus.html", context={'request': request, 'prediction': prediction})
 
 
-# test file upload
 @router.get('/flats/fileupload')
 async def create_file(request: Request):
     return templates.TemplateResponse('flats/create_file.html', context={'request': request})
 
+
 @router.post("/flats/fileupload")
 async def create_upload_file(request: Request, file: UploadFile, db: Session = Depends(get_db)):
     content = await file.read()
+
     df = pd.read_excel(content)
     df = read_df(df, db)
-
     df.to_excel('app/static/flats/file_transfer/df_to_excel.xlsx', index=False, header=True)
 
     return FileResponse('app/static/flats/file_transfer/df_to_excel.xlsx')
+
+
+@router.get('/flats/example/')
+async def get_example_xlsx(request: Request):
+    return FileResponse('app/static/flats/file_transfer/example.xlsx')
