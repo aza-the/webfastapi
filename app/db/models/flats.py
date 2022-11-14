@@ -1,10 +1,9 @@
 from sqlalchemy import Column, Float, Integer, String
 
-from app.db.models import DeclarativeBase
+from app.db import DeclarativeBase
 
 
 class Flats(DeclarativeBase):
-
     __tablename__ = 'flats'
 
     id = Column(Integer, primary_key=True, index=True)

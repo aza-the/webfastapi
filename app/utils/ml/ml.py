@@ -1,9 +1,7 @@
 import csv
+import decimal
 import json
 import os
-
-
-import decimal
 
 import numpy as np
 import tensorflow as tf
@@ -68,24 +66,12 @@ def run_preditcion_on_model(
     with open(f'./{make.FOLDER_PATH}/type_of_walls_dict.json') as file:
         type_of_walls_dict = json.load(file)
 
-    print(district)
-    print(fix)
-    print(metro_name)
-    print(metro_get_type)
-    print(type_of_building)
-    print(type_of_walls)
     district = district_dict[district]
     fix = fix_dict[fix]
     metro_name = metro_name_dict[metro_name]
     metro_get_type = metro_get_type_dict[metro_get_type]
     type_of_building = type_of_building_dict[type_of_building]
     type_of_walls = type_of_walls_dict[type_of_walls]
-    print(district)
-    print(fix)
-    print(metro_name)
-    print(metro_get_type)
-    print(type_of_building)
-    print(type_of_walls)
 
     model = build_model(LEARNING_RATE)
 
@@ -194,7 +180,7 @@ def train_model() -> None:
         filepath=CHECKPOINT_PATH, save_weights_only=True, verbose=1
     )
 
-    history = model.fit(
+    _ = model.fit(
         train_data,
         train_targets,
         epochs=epochs,

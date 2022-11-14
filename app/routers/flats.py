@@ -75,7 +75,7 @@ async def create_file(request: Request):
 
 @router.post("/flats/fileupload")
 async def create_upload_file(
-    request: Request, file: UploadFile, db: Session = Depends(get_session)
+    file: UploadFile, db: Session = Depends(get_session)
 ):
     content = await file.read()
 
@@ -91,5 +91,5 @@ async def create_upload_file(
 
 
 @router.get('/flats/example/')
-async def get_example_xlsx(request: Request):
+async def get_example_xlsx():
     return FileResponse('app/static/flats/file_transfer/example.xlsx')

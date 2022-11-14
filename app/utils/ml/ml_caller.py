@@ -1,4 +1,4 @@
-from app.db import create_record_flat
+from app.db.crud import create_record_flat
 from app.schemas import Flat
 
 from .ml import normal_int, run_preditcion_on_model
