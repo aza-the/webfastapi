@@ -1,3 +1,7 @@
+# pylint: disable=too-many-arguments,too-many-locals,broad-except,\
+# pylint: disable=too-many-branches,too-many-statements
+
+
 from app.db.crud import create_record_flat
 from app.schemas import Flat
 

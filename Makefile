@@ -11,7 +11,7 @@ ifndef APP_HOST
 override APP_HOST = 127.0.0.1
 endif
 
-CODE = app tests
+CODE = app
 MIGRATOR_PATH = app/db/
 
 run:

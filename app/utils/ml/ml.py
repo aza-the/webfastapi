@@ -1,3 +1,7 @@
+# pylint: disable=unspecified-encoding,too-many-locals,too-many-arguments,
+# pylint: disable=consider-using-f-string,consider-using-enumerate,duplicate-code
+
+
 import csv
 import decimal
 import json

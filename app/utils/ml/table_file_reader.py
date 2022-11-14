@@ -1,3 +1,5 @@
+# pylint: disable=broad-except,duplicate-code
+
 import pandas as pd
 
 from app.db.crud import create_record_flat
@@ -8,7 +10,7 @@ from .ml import normal_int
 
 
 def read_df(df: pd.DataFrame, db) -> pd.DataFrame:
-    predictions = list()
+    predictions = []
 
     for _, row in df.iterrows():
         prediction = run_preditcion_on_model(

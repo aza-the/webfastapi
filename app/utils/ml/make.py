@@ -1,3 +1,7 @@
+# pylint: disable=broad-except,unspecified-encoding,
+# pylint: disable=too-many-locals,too-many-branches,too-many-statements,
+# pylint: disable=consider-iterating-dictionary
+
 import csv
 import json
 import os

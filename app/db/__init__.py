@@ -17,6 +17,4 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 DeclarativeBase = declarative_base(metadata=metadata)
 
-__all__ = [
-    "DeclarativeBase"
-]
+__all__ = ["DeclarativeBase"]
