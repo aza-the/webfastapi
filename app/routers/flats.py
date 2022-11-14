@@ -29,9 +29,8 @@ templates = Jinja2Templates(directory="app/templates")
 async def get_flats_page(request: Request):
     return templates.TemplateResponse("flats/indexrus.html", context={"request": request})
 
-
 @router.post('/flats/', response_class=HTMLResponse)
-async def get_flats_page(request: Request, form_data: FlatForm = Depends(FlatForm.as_form), db: Session = Depends(get_db)):
+async def get_flats_page(request: Request, form_data: FlatForm = Depends(), db: Session = Depends(get_db)):
     prediction = ml_call_prediction(
         db, 
         form_data.district_l,
