@@ -1,6 +1,6 @@
 import pandas as pd
-from app.db import create_record_flat
 
+from app.db import create_record_flat
 from app.schemas import Flat
 from app.utils.ml.ml import run_preditcion_on_model
 
@@ -10,7 +10,7 @@ from .ml import normal_int
 def read_df(df: pd.DataFrame, db) -> pd.DataFrame:
     predictions = list()
 
-    for index, row in df.iterrows():
+    for _, row in df.iterrows():
         prediction = run_preditcion_on_model(
             row['district'],
             row['metro_name'],

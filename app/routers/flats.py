@@ -10,7 +10,6 @@ from app.schemas.flat_form import FlatForm
 from app.utils.ml.ml_caller import ml_call_prediction
 from app.utils.ml.table_file_reader import read_df
 
-
 router = APIRouter(tags=['flats'])
 
 router.mount("/app/static", StaticFiles(directory="app/static"), name="static")

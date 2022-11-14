@@ -2,7 +2,6 @@ import csv
 import json
 import os
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 import decimal
 
@@ -12,6 +11,8 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 from . import make
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 CHECKPOINT_PATH = "app/utils/ml/trained_w/cp.ckpt"
 LEARNING_RATE = 0.00006

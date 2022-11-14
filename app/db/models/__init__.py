@@ -3,7 +3,6 @@ from sqlalchemy.orm import declarative_base
 
 from app.db.models.flats import Flats
 
-
 convention = {
     "all_column_names": lambda constraint, table: "_".join(
         [str(column.name) for column in constraint.columns.values()]
@@ -20,7 +19,4 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 DeclarativeBase = declarative_base(metadata=metadata)
 
-__all__ = [
-    "DeclarativeBase",
-    "Flats"
-]
+__all__ = ["DeclarativeBase", "Flats"]

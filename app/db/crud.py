@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from app.schemas import Flat
 from app.db.models import Flats
+from app.schemas import Flat
 
 
 def read_record_flat(db: Session, id: int):
