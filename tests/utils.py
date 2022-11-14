@@ -11,7 +11,6 @@ from httpx import AsyncClient
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-
 PROJECT_PATH = Path(__file__).parent.parent.resolve()
 AUTHENTICATE_URL: str = "/api/v1/user/authentication"
 

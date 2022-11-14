@@ -13,11 +13,10 @@ from httpx import AsyncClient
 from sqlalchemy.orm import Session
 from sqlalchemy_utils import create_database, database_exists, drop_database
 
-from tests.utils import make_alembic_config
-
 from app.__main__ import get_app
 from app.config import get_settings
 from app.db.connection import SessionManager
+from tests.utils import make_alembic_config
 
 
 @pytest.fixture(scope="session")

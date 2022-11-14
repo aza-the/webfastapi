@@ -16,9 +16,13 @@ templates = Jinja2Templates(directory="app/templates")
 
 @app.exception_handler(404)
 async def custom_404_handler(request: Request, __):
-    return templates.TemplateResponse("error404/error404rus.html", context={"request": request})
+    return templates.TemplateResponse(
+        "error404/error404rus.html", context={"request": request}
+    )
 
 
 @app.get('/', response_class=HTMLResponse)
 async def get_root(request: Request):
-    return templates.TemplateResponse("root/rootrus.html", context={"request": request})
+    return templates.TemplateResponse(
+        "root/rootrus.html", context={"request": request}
+    )

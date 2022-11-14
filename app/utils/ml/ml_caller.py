@@ -4,7 +4,7 @@ from .ml import normal_int, run_preditcion_on_model
 
 
 def ml_call_prediction(
-    db, 
+    db,
     district_l,
     underground_l,
     underground_time,
@@ -33,7 +33,7 @@ def ml_call_prediction(
     walls_c_wooden_walls,
     walls_c_idk,
 ):
-    #name of district
+    # name of district
     district_l: str = district_l
 
     # underground information
@@ -41,7 +41,7 @@ def ml_call_prediction(
     underground_time: int = underground_time
     underground_c_by_foot: bool = underground_c_by_foot
     underground_c_by_transport: bool = underground_c_by_transport
-    
+
     underground_type: str
 
     if underground_c_by_foot:
@@ -82,8 +82,12 @@ def ml_call_prediction(
     # type of building
     building_c_block_construction: bool = building_c_block_construction
     building_c_brick_construction: bool = building_c_brick_construction
-    building_c_foam_concrete_construction: bool = building_c_foam_concrete_construction
-    building_c_monolith_brick_construction: bool = building_c_monolith_brick_construction
+    building_c_foam_concrete_construction: bool = (
+        building_c_foam_concrete_construction
+    )
+    building_c_monolith_brick_construction: bool = (
+        building_c_monolith_brick_construction
+    )
     building_c_monolith_construction: bool = building_c_monolith_construction
     building_c_panel_construction: bool = building_c_panel_construction
     building_c_stalins_construction: bool = building_c_stalins_construction
@@ -113,7 +117,6 @@ def ml_call_prediction(
     else:
         building_type = 'None'
 
-
     # type of walls
     walls_c_mixed_walls: bool = walls_c_mixed_walls
     walls_c_reinforced_concrete_walls: bool = walls_c_reinforced_concrete_walls
@@ -133,36 +136,36 @@ def ml_call_prediction(
     else:
         walls_type = 'None'
 
-
     prediction = run_preditcion_on_model(
-        district = district_l,
-        metro_name = underground_l,
-        metro_time = underground_time,
-        metro_get_type = underground_type,
-        size = flat_size,
-        kitchen = kitchen_size,
-        floor = floor,
-        floors = floors,
-        constructed = constructed,
-        fix = renovation_type,
-        type_of_building = building_type,
-        type_of_walls = walls_type,
+        district=district_l,
+        metro_name=underground_l,
+        metro_time=underground_time,
+        metro_get_type=underground_type,
+        size=flat_size,
+        kitchen=kitchen_size,
+        floor=floor,
+        floors=floors,
+        constructed=constructed,
+        fix=renovation_type,
+        type_of_building=building_type,
+        type_of_walls=walls_type,
     )
 
     dict_for_pydantic_model_flat = {
-        'district' : district_l,
-        'metro_name' : underground_l,
-        'metro_time' : underground_time,
-        'metro_get_type' : underground_type,
-        'size' : flat_size,
-        'kitchen' : kitchen_size,
-        'floor' : floor,
-        'floors' : floors,
-        'constructed' : constructed,
-        'fix' : renovation_type,
-        'type_of_building' : building_type,
-        'type_of_walls' : walls_type,
-        'price' : prediction*1000000, # multiplying by 1 000 000 to get price in millions
+        'district': district_l,
+        'metro_name': underground_l,
+        'metro_time': underground_time,
+        'metro_get_type': underground_type,
+        'size': flat_size,
+        'kitchen': kitchen_size,
+        'floor': floor,
+        'floors': floors,
+        'constructed': constructed,
+        'fix': renovation_type,
+        'type_of_building': building_type,
+        'type_of_walls': walls_type,
+        'price': prediction
+        * 1000000,  # multiplying by 1 000 000 to get price in millions
     }
 
     try:
@@ -170,7 +173,6 @@ def ml_call_prediction(
         crud.create_record_flat(db, flat)
     except Exception as ex:
         print(ex, "POSTGRES OFF HIGH PROBABILITY")
-
 
     prediction = str(normal_int(prediction))
 
