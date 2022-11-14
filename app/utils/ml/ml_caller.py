@@ -1,4 +1,5 @@
-from app.db.db import crud, schemas
+from app.db import create_record_flat
+from app.schemas import Flat
 
 from .ml import normal_int, run_preditcion_on_model
 
@@ -169,8 +170,8 @@ def ml_call_prediction(
     }
 
     try:
-        flat = schemas.Flat(**dict_for_pydantic_model_flat)
-        crud.create_record_flat(db, flat)
+        flat = Flat(**dict_for_pydantic_model_flat)
+        create_record_flat(db, flat)
     except Exception as ex:
         print(ex, "POSTGRES OFF HIGH PROBABILITY")
 

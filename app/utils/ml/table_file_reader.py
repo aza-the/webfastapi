@@ -1,6 +1,7 @@
 import pandas as pd
+from app.db import create_record_flat
 
-from app.db.db import crud, schemas
+from app.schemas import Flat
 from app.utils.ml.ml import run_preditcion_on_model
 
 from .ml import normal_int
@@ -44,8 +45,8 @@ def read_df(df: pd.DataFrame, db) -> pd.DataFrame:
         }
 
         try:
-            flat = schemas.Flat(**dict_for_pydantic_model_flat)
-            crud.create_record_flat(db, flat)
+            flat = Flat(**dict_for_pydantic_model_flat)
+            create_record_flat(db, flat)
         except Exception as ex:
             print(ex, "POSTGRES OFF HIGH PROBABILITY")
 

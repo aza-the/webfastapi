@@ -1,9 +1,9 @@
 from sqlalchemy import Column, Float, Integer, String
 
-from .database import Base
+from app.db.models import DeclarativeBase
 
 
-class Flats(Base):
+class Flats(DeclarativeBase):
 
     __tablename__ = 'flats'
 

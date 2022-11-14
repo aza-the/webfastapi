@@ -1,22 +1,14 @@
 import pandas as pd
 from fastapi import APIRouter, Depends, Request, UploadFile
-from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
-from app.db.db import database
+from app.db.connection import get_session
 from app.schemas.flat_form import FlatForm
 from app.utils.ml.ml_caller import ml_call_prediction
 from app.utils.ml.table_file_reader import read_df
-
-
-def get_db():
-    db = database.SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 router = APIRouter(tags=['flats'])
@@ -34,10 +26,10 @@ async def get_flats_page(request: Request):
 
 
 @router.post('/flats/', response_class=HTMLResponse)
-async def get_flats_page(
+async def post_flats_page(
     request: Request,
     form_data: FlatForm = Depends(FlatForm.as_form),
-    db: Session = Depends(get_db),
+    db: Session = Depends(get_session),
 ):
     prediction = ml_call_prediction(
         db,
@@ -84,7 +76,7 @@ async def create_file(request: Request):
 
 @router.post("/flats/fileupload")
 async def create_upload_file(
-    request: Request, file: UploadFile, db: Session = Depends(get_db)
+    request: Request, file: UploadFile, db: Session = Depends(get_session)
 ):
     content = await file.read()
 

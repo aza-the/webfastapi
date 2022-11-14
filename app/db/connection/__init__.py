@@ -1,4 +1,4 @@
-from balance.db.postgresql.connection.session import (
+from app.db.connection.session import (
     SessionManager,
     get_session,
 )
