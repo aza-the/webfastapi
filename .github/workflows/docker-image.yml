@@ -65,4 +65,4 @@ jobs:
         with:
           to: ${{ secrets.NIKOLAY_TELEGRAM }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
+          message: ${{ github.workflow }} успешно выполнен!😎
