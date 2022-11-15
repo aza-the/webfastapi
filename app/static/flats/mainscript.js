@@ -138,7 +138,7 @@ window.addEventListener("scroll", (event) => {
 function hihglight_obj(obj){
     changed_obj.style.fontSize = "23px";  // should return to the original size of .sidenav a (styles.css file) font size
     changed_obj.style.color = "#dfd5d5";  // should return to the original color of .sidenav a (styles.css file) color
-    obj.style.fontSize = "40px";
+    obj.style.fontSize = "35px";
     obj.style.color = "#ffffff";
     changed_obj = obj;
 }

@@ -16,7 +16,7 @@
 .sidenav a {
     padding: 6px 6px 0px 28px;
     text-decoration: none;
-    font-family: "Times New Roman", serif;
+    font-family: monospace, "Times New Roman", serif;
     font-size: 23px;
     color: #dfd5d5;
     display: block;

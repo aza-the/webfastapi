@@ -1,0 +1,445 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+
+.all {
+    animation: background-pan 7s linear infinite;
+    background: linear-gradient(
+        0.25turn,
+        #44afc6,
+        #3f6b76,
+        #44afc6
+    );
+    background-size: 200%;
+    height: 100%;
+    width: 100%;
+}
+
+/* Style page content - use this if you want to push the page content to the right */
+#main {     
+    margin-left: 385px; /* should be equal to width of .sidenav + ticker */
+    padding-top: 4%;
+} 
+
+
+
+/* * TICKER  */
+.ticker {
+    margin-left: 300px; /* should be equal to width of .sidenav */
+    position: fixed;
+    overflow: hidden;
+}
+
+.scroll {
+    display: flex;
+}
+
+.ticker_item {
+    font-family: monospace; /* this is just for good looks */
+    color: #000;
+    font-size: 3.5em;
+    background: #fff;
+    white-space: nowrap;
+    font-weight: 500;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+#ticker_1 {
+    animation: animate 50s linear infinite;
+    animation-delay: -50s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+#ticker_2 {
+    animation: animate2 50s linear infinite;
+    animation-delay: -25s;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-200%);
+    }
+}
+
+.ticker_item span {
+    -webkit-text-stroke: 2px #418493;
+    color: transparent;
+}
+
+
+
+/* * On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+
+/* * The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 300px;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #418493;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 10%; /* Place content % from the top */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 6px 0px 28px;
+    text-decoration: none;
+    font-family: monospace, "Times New Roman", serif;
+    font-size: 1.4em;
+    margin: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    color: #cdcdcd;
+    display: block;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+
+
+ /* * main card info */
+.formelement h1{
+    font-family: monospace;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.formclass {
+    position: fixed;
+    display: block;
+    background-color: #418493;
+    border-right: solid 2px #387382;
+    margin-left: 2%;
+    height: 83%;
+    width: 45%;
+    border-radius: 10px;
+    padding: 2%;
+    color: #fff;
+}
+
+.mapsclass {
+    position: fixed;
+    display: block;
+    background-color: #3e7e8c;
+    margin-left: 22%;
+    height: 83%;
+    width: 45%; 
+    border-radius: 10px;
+    padding: 2%;
+}
+
+
+
+/* *  form elements  */
+.formelements {
+    position: fixed;
+    overflow: hidden;
+    overflow-inline: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.formelement{
+    display: inline-block;
+    width: inherit;
+    height: 100%;
+}
+
+.address {
+    font-family: monospace;
+    margin-top: 10%;
+    margin-left: 2%;
+}
+
+.ymaps-2-1-79-search__suggest-item {
+    font-family: monospace;
+    color: rgba(0, 0, 0, 0.642);
+}
+
+.ymaps-2-1-79-search__suggest-highlight {
+    font-family: monospace;
+    color: black;
+}
+
+#suggest {
+    font-family: monospace;
+    margin-left: 5%;
+    width: 400px;   
+}
+
+#underground_station{
+    font-family: monospace;
+    margin-top: 2%;
+    margin-left: 11%;
+    width: 200px;
+}
+
+#underground_time {
+    font-family: monospace;
+    margin-top: 2%;
+    margin-left: 11%;
+    width: 200px;
+}
+
+.get_type {
+    margin-top: 1%;
+    margin-left: 14%;
+}
+
+.btn{
+    font-family: monospace;
+    border-radius: 3px;
+    border-color: #5cb8cd;
+    background-color: #5cb8cd;
+}
+
+#flats {
+    margin-top: 2%;
+    margin-left: 12.5%;
+    width: 185px;
+    height: 30px;
+    font-family: monospace;
+}
+
+#flat_size{
+    margin-top: 2%;
+    margin-left: 12.5%;
+    width: 185px;
+    height: 30px;
+    font-family: monospace;
+
+}
+
+#kitchen_size{
+    margin-top: 2%;
+    margin-left: 12.5%;
+    width: 185px;
+    height: 30px;
+    font-family: monospace;
+
+}
+
+#storey{
+    margin-top: 2%;
+    margin-left: 12.5%;
+    width: 185px;
+    height: 30px;
+    font-family: monospace;
+
+}
+
+#storeys{
+    margin-top: 2%;
+    margin-left: 12.5%;
+    width: 185px;
+    height: 30px;
+    font-family: monospace;
+
+}
+
+
+.radiobtns{
+    margin-top: 1%;
+    margin-left: 7%;
+}
+
+.form-check{
+    margin-right: 40px;
+}
+
+.form-check:checked::after{
+    background-color: #000;
+}
+
+.form-check-label img
+{
+    width: 100px;
+    height: 100px;
+    transition: 1s;
+}
+
+#find{
+    width: 70px;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: 17%;
+}
+
+#map {
+    height: 50%;
+    width: 41%; 
+}
+
+#date_constrcucted {
+    margin-left: 14%;
+    width: 200px;
+}
+
+#radio_construction{
+    border: solid 2px #c8c8c8;
+    color: #c8c8c8;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    transition: 300ms;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: 800;
+    margin: 10px;
+}
+
+#radio_construction label{
+    transition: 300ms;
+}
+
+#radio_construction:hover{
+    border: solid 5px #fff;
+    color: #fff;
+    font-size: 1.5em;
+    height: 80px;
+}
+
+.form-check-input:checked + label{
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.form-check-input:checked {
+    border: solid 1px #fff;
+    color: #fff;
+    font-size: 1em;
+}
+
+#radio_construction input{
+    transition: 400ms;
+}
+
+#radio_construction:hover input{
+    margin-top: 15%;
+    margin-left: -28px;
+}
+
+.r{
+    transition: 300ms;
+}
+
+#radio_construction:hover p.r{
+    margin-top: 17px;
+
+}
+
+.inner_form_check {
+    padding-left: 5px;
+}
+
+.inner_form_check input {
+    margin-top: 9%;
+    margin-left: 30px;
+}
+
+.construction_type{
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.wall{
+    margin-top: 2%;
+    margin-left: 3%; 
+}
+
+#radio_wall p{
+    transition: 300ms;
+}
+
+#radio_wall:hover p{
+    margin-top: 20px;
+}
+
+#radio_wall input{
+    transition: 400ms;
+}
+
+#radio_wall:hover input{
+    margin-top: 15%;
+    margin-left: -28px;
+}
+
+#radio_wall{
+    border: solid 2px #c8c8c8;
+    color: #c8c8c8;
+    width: 210px;
+    height: 50px;
+    border-radius: 20px;
+    transition: 300ms;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: 800;
+    margin: 10px;
+}
+
+#radio_wall label{
+    transition: 300ms;
+}
+
+#radio_wall:hover{
+    border: solid 5px #fff;
+    color: #fff;
+    font-size: 1.2em;
+    height: 80px;
+}
+
+.next_button {
+    margin-top: 1.8%;
+    margin-left: 17%;
+}
+
+#result {
+    display: none;
+}
