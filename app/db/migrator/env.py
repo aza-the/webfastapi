@@ -1,11 +1,12 @@
 from logging.config import fileConfig
 
 from alembic import context
-from db import models
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
-
+from app.db.models import *  # noqa
 from app.config import get_settings
+from app.db import DeclarativeBase
+
 
 load_dotenv()
 
@@ -27,13 +28,12 @@ config.set_section_option(
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
-if config.config_file_name is not None:
-    fileConfig(config.config_file_name)
+fileConfig(config.config_file_name, disable_existing_loggers=False)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
 
-target_metadata = models.Base.metadata
+target_metadata = DeclarativeBase.metadata
 # target_metadata = None
 
 # other values from the config, defined by the needs of env.py,

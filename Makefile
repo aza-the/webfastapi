@@ -12,19 +12,22 @@ override APP_HOST = 127.0.0.1
 endif
 
 CODE = app
-MIGRATOR_PATH = app/db/
+ALEMBIC_PATH = app/db/alembic.ini
 
 run:
 	uvicorn app.__main__:app --reload --host $(APP_HOST) --port $(APP_PORT)
 
 revision:
-	cd $(MIGRATOR_PATH) && alembic revision --autogenerate -m "$(m)"
+	alembic -c $(ALEMBIC_PATH) revision --autogenerate
 
 alembic_upgrade:
-	cd $(MIGRATOR_PATH) && alembic upgrade heads
+	alembic -c $(ALEMBIC_PATH) upgrade heads
 
 alembic_downgrade:
-	cd $(MIGRATOR_PATH) && alembic downgrade heads
+	alembic -c $(ALEMBIC_PATH) downgrade heads
+
+test:
+	poetry run python -m pytest --verbosity=2 --showlocals --log-level=DEBUG
 
 format: # Format code
 	isort $(CODE)

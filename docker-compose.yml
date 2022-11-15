@@ -1,0 +1,22 @@
+version: '3.10'
+
+services:
+  app:
+    container_name: app 
+    # image: azathe666/flats
+    build: .
+    volumes:
+      - static_value:/code/static/
+    env_file: .env
+  db:
+    container_name: postgresql
+    image: 'postgres:14'
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+volumes:
+  postgres_data:
+  static_value:

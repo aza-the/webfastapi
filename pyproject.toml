@@ -76,9 +76,22 @@ python-dotenv = "^0.21.0"
 httpx = "0.18.0"
 isort = "^5.10.1"
 asyncpg = "^0.27.0"
+ConfigArgParse = "^1.5.3"
+pytest-asyncio = "^0.20.2"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+# PYTEST
+
+[tool.pytest]
+python_files = "test_*.py"
+python_classes = ["*Test", "Test*"]
+python_functions = "test_*"
+testpaths = "tests/"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
