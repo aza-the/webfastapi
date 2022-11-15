@@ -3,10 +3,10 @@ from logging.config import fileConfig
 from alembic import context
 from dotenv import load_dotenv
 from sqlalchemy import engine_from_config, pool
-from app.db.models import *  # noqa
+
 from app.config import get_settings
 from app.db import DeclarativeBase
-
+from app.db.models import *  # noqa
 
 load_dotenv()
 

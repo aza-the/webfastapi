@@ -11,7 +11,9 @@ def get_app():
     for route in list_of_routes:
         app.include_router(route)
 
-    app.mount("/app/static", StaticFiles(directory="app/static"), name="static")
+    app.mount(
+        "/app/static", StaticFiles(directory="app/static"), name="static"
+    )
     return app
 
 
