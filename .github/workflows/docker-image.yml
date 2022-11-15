@@ -8,13 +8,8 @@ on:
 
 jobs:
 
-  container-job:
-    # Containers must run in Linux based operating systems
+  tests:
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
-
-    # Service containers to run with `container-job`
     services:
       # Label used to access the service container
       postgres:
@@ -27,9 +22,6 @@ jobs:
           POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-
-  tests:
-    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
