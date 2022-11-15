@@ -8,7 +8,6 @@ ready.json
 
 /webfastapi-venv
 .vscode/
-versions/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
