@@ -83,7 +83,7 @@ jobs:
             sudo git pull
             sudo docker-compose stop
             sudo docker-compose rm web
-            touch .env
+            rm .env && touch .env || touch .env
             echo APP_HOST=${{ secrets.APP_HOST }} >> .env
             echo APP_PORT=${{ secrets.APP_PORT }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
