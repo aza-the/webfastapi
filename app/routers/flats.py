@@ -28,7 +28,7 @@ templates = Jinja2Templates(directory="app/templates")
 # * Main flats page
 @router.get('/flats/', response_class=HTMLResponse)
 async def get_flats_page(request: Request):
-    return templates.TemplateResponse("flats.html", context={"request": request})
+    return templates.TemplateResponse("flats_up/flats.html", context={"request": request})
     return templates.TemplateResponse("flats/indexrus.html", context={"request": request})
 
 
