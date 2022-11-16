@@ -52,22 +52,22 @@ def run_preditcion_on_model(
     type_of_building_dict: dict
     type_of_walls_dict: dict
 
-    with open(f'./{make.FOLDER_PATH}/distrcit_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/distrcit_dict.json', encoding='utf-8') as file:
         district_dict = json.load(file)
 
-    with open(f'./{make.FOLDER_PATH}/fix_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/fix_dict.json', encoding='utf-8') as file:
         fix_dict = json.load(file)
 
-    with open(f'./{make.FOLDER_PATH}/metro_get_type_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/metro_get_type_dict.json', encoding='utf-8') as file:
         metro_get_type_dict = json.load(file)
 
-    with open(f'./{make.FOLDER_PATH}/metro_name_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/metro_name_dict.json', encoding='utf-8') as file:
         metro_name_dict = json.load(file)
 
-    with open(f'./{make.FOLDER_PATH}/type_of_building_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/type_of_building_dict.json', encoding='utf-8') as file:
         type_of_building_dict = json.load(file)
 
-    with open(f'./{make.FOLDER_PATH}/type_of_walls_dict.json') as file:
+    with open(f'./{make.FOLDER_PATH}/type_of_walls_dict.json', encoding='utf-8') as file:
         type_of_walls_dict = json.load(file)
 
     district = district_dict[district]
