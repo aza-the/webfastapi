@@ -10,8 +10,9 @@ class DefaultSettings(BaseSettings):
     """
     Default configs for application.
 
-    Usually, we have three environments: for development, testing and production.
-    But in this situation, we only have standard settings for local development.
+    Usually, we have three environments: for development,
+    testing and production. But in this situation,
+    we only have standard settings for local development.
     """
 
     ENV: str = environ.get("ENV", "local")
@@ -43,8 +44,9 @@ class DefaultSettings(BaseSettings):
         """
         Get uri for connection with database.
         """
-        return "postgresql+asyncpg://{user}:{password}@{host}:{port}/{database}".format(
-            **self.database_settings,
+        return (
+            "postgresql+asyncpg://{user}:{password}@{host}:{port}/{database}"
+            .format(**self.database_settings)
         )
 
     @property
@@ -53,9 +55,8 @@ class DefaultSettings(BaseSettings):
         Get uri for connection with database.
         """
         return (
-            "postgresql://{user}:{password}@{host}:{port}/{database}".format(
-                **self.database_settings,
-            )
+            "postgresql://{user}:{password}@{host}:{port}/{database}"
+            .format(**self.database_settings)
         )
 
     class Config:
