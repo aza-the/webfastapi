@@ -1,5 +1,15 @@
 console.log("FLATS.JS started");
 
+console.log($(window).width());
+
+const formelement_about_load = document.getElementById("formelement_about_load");
+formelement_about_load.addEventListener("click", () => {
+    location.href = "/flats/fileupload/";
+})
+
+const first = 1200
+const second = 700
+
 // function that scrolls to obj_scrollto smoothly
 function scroll_to(obj_scrollto){
     obj_scrollto.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
@@ -9,9 +19,17 @@ let changed_obj;
 
 // function that makes the font bigger and brighter
 function hihglight_obj(obj){
-    changed_obj.style.fontSize = "1.4em";  // should return to the original size of .sidenav a (styles.css file) font size
+    if($(window).width() >= first){
+        changed_obj.style.fontSize = "1.4em";  // should return to the original size of .sidenav a (styles.css file) font size
+        obj.style.fontSize = "1.7em";
+
+    }
+    else if($(window).width() >= second){
+        changed_obj.style.fontSize = "0.8em";  // should return to the original size of .sidenav a (styles.css file) font size
+        obj.style.fontSize = "1.1em";
+
+    }
     changed_obj.style.color = "#cdcdcd";  // should return to the original color of .sidenav a (styles.css file) color
-    obj.style.fontSize = "1.7em";
     obj.style.color = "#ffffff";
     changed_obj = obj;
 }
@@ -19,7 +37,12 @@ function hihglight_obj(obj){
 
 const formelement_about = document.getElementById("formelement_about");
 const about = document.getElementById("about");
-about.style.fontSize = "1.7em";
+if($(window).width() > first){
+    about.style.fontSize = "1.7em";
+}
+else if($(window).width() > second){
+    about.style.fontSize = "1.1em";
+}
 about.style.color = "#ffffff";
 changed_obj = about;
 about.addEventListener("click", () => {
@@ -102,11 +125,11 @@ formelement_about_building_next.addEventListener("click", () => {
 
 
 // IMG RADIO BUTTON 
-let uncheck_undergorund;
+let uncheck_underground;
 function unhighlight_check_img(){
-    if(uncheck_undergorund){
-        uncheck_undergorund.style.height = "100px";
-        uncheck_undergorund.style.width = "100px";
+    if(uncheck_underground){
+        uncheck_underground.style.height = "100px";
+        uncheck_underground.style.width = "100px";
     }
 }
 
@@ -114,7 +137,7 @@ function highlight_check_img(obj) {
     unhighlight_check_img()
     obj.style.height = "120px";
     obj.style.width = "120px";
-    uncheck_undergorund = obj;
+    uncheck_underground = obj;
 }
 
 const by_foot_radio = document.getElementById("by_foot_radio");

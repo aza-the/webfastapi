@@ -5,8 +5,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
-# from app.db.crud import create_record_flat
-# from app.schemas import Flat
+from app.db.crud import create_record_flat
+from app.schemas import Flat
 from app.db.connection import get_session
 from app.schemas.flat_form import FlatForm
 from app.utils.ml.ml import normal_int, run_preditcion_on_model
@@ -55,31 +55,30 @@ async def post_flats_page(
         type_of_walls=form_data.wall,
     )
 
-
     prediction = str(normal_int(prediction))
 
     dict_for_pydantic_model_flat = {
-        'district':district,
-        'metro_name':form_data.undergorund_station,
-        'metro_time':form_data.undergorund_time,
-        'metro_get_type':form_data.undergorund_get_type,
-        'size':form_data.flat_size,
-        'kitchen':form_data.kitchen_size,
-        'floor':form_data.storey,
-        'floors':form_data.storeys,
-        'constructed':form_data.construction_date,
-        'fix':form_data.renovation,
-        'type_of_building':form_data.construction_type,
-        'type_of_walls':form_data.wall,
+        'district': form_data.district,
+        'metro_name': form_data.underground_station,
+        'metro_time': form_data.underground_time,
+        'metro_get_type': form_data.underground_get_type,
+        'size': form_data.flat_size,
+        'kitchen': form_data.kitchen_size,
+        'floor': form_data.storey,
+        'floors': form_data.storeys,
+        'constructed': form_data.construction_date,
+        'fix': form_data.renovation,
+        'type_of_building': form_data.construction_type,
+        'type_of_walls': form_data.wall,
         'price': prediction
         * 1000000,  # multiplying by 1 000 000 to get price in millions
     }
 
-    # try:
-    #     flat = Flat(**dict_for_pydantic_model_flat)
-    #     create_record_flat(db, flat)
-    # except Exception as ex:
-    #     print(ex, "POSTGRES OFF HIGH PROBABILITY")
+    try:
+        flat = Flat(**dict_for_pydantic_model_flat)
+        create_record_flat(db, flat)
+    except Exception as ex:
+        print(ex, "POSTGRES OFF HIGH PROBABILITY")
 
     return {"Рассчёт": prediction}
 

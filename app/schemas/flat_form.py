@@ -24,7 +24,7 @@ METRO_TYPES_PATH = 'app/utils/ml/files_for_ml/metro_name_dict.json'
 class FlatForm:
     district: str = Form("")
 
-    underground_station: str = Form("", title='123', examples={'1': 1})
+    underground_station: str = Form("")
     underground_time: int = Form(0)
     underground_get_type: str = Form("")
 
