@@ -160,6 +160,7 @@ html, body {
     border-radius: 10px;
     padding: 2%;
     color: #fff;
+    transition: 3s;
 }
 
 .mapsclass {
@@ -171,6 +172,7 @@ html, body {
     width: 45%; 
     border-radius: 10px;
     padding: 2%;
+    transition: 3s;
 }
 
 
@@ -311,8 +313,9 @@ html, body {
 }
 
 #map {
-    height: 50%;
-    width: 41%; 
+    margin-top: 10px;
+    height: 400px;
+    width: 500px; 
 }
 
 #date_constrcucted {
@@ -384,7 +387,7 @@ html, body {
 }
 
 .construction_type{
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: 3%;
 }
 
@@ -438,4 +441,18 @@ html, body {
 .next_button {
     margin-top: 1.8%;
     margin-left: 17%;
+}
+
+#responseArea {
+    color: white;
+}
+
+#infodiv {
+    float: right;
+    width: 50%;
+}
+
+#infodiv1 {
+    float: left;
+    width: 50%;
 }

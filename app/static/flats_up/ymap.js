@@ -5,15 +5,15 @@ ymaps.ready(init);
 
 function init () {
 
-    // Создание экземпляра карты и его привязка к контейнеру с
-    // заданным id ("map").
-    myMap = new ymaps.Map('map', {
-        // При инициализации карты обязательно нужно указать
-        // её центр и коэффициент масштабирования.
-        center: [55.76, 37.64], // Москва
-        zoom: 10
-    }, {
-        searchControlProvider: 'yandex#search'
+    $('#formelement_about_building_find_out').bind({
+        click: function () {
+            myMap = new ymaps.Map('map', {
+                center: [55.76, 37.64], // Новосибирск
+                zoom: 10
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+        }
     });
 
 }

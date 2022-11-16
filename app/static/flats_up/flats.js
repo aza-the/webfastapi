@@ -127,3 +127,9 @@ const by_transport_img = document.getElementById("by_transport_img");
 by_transport_img.addEventListener("click", () => { highlight_check_img(by_transport_img) });
 by_transport_radio.addEventListener("click", () => { highlight_check_img(by_transport_img) });
 
+const formelement_about_building_find_out = document.getElementById("formelement_about_building_find_out");
+const info_details = document.getElementById("info_details");
+formelement_about_building_find_out.addEventListener("click", () => {
+    scroll_to(info_details)
+});
+

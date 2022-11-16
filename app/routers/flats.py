@@ -9,6 +9,7 @@ from app.db.connection import get_session
 from app.schemas.flat_form import FlatForm
 from app.utils.ml.ml_caller import ml_call_prediction
 from app.utils.ml.table_file_reader import read_df
+from app.utils.ml.district_converter import find_district
 
 router = APIRouter(tags=['flats'])
 
@@ -25,7 +26,7 @@ async def get_flats_page(request: Request):
     )
 
 
-@router.post('/flats/', response_class=HTMLResponse)
+@router.post('/flats/')
 async def post_flats_page(
     request: Request,
     form_data: FlatForm = Depends(),
@@ -34,10 +35,15 @@ async def post_flats_page(
     # prediction = ml_call_prediction(
     #     db,
     # )
-    return templates.TemplateResponse(
-        "flats_up/flats.html",
-        context={'request': request},
-    )
+
+    district = find_district(form_data.district)
+
+    return {"Рассчёт": "10 563 00"}
+
+    # return templates.TemplateResponse(
+    #     "flats_up/flats.html",
+    #     context={'request': request},
+    # )
 
 
 # * XLSX FILE UPLOADING and RECEIVING page
