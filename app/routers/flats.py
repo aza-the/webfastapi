@@ -31,12 +31,12 @@ async def post_flats_page(
     form_data: FlatForm = Depends(),
     db: Session = Depends(get_session),
 ):
-    prediction = ml_call_prediction(
-        db,
-    )
+    # prediction = ml_call_prediction(
+    #     db,
+    # )
     return templates.TemplateResponse(
-        "flats/prediction_responserus.html",
-        context={'request': request, 'prediction': prediction},
+        "flats_up/flats.html",
+        context={'request': request},
     )
 
 
