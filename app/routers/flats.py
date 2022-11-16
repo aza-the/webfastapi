@@ -7,7 +7,6 @@ from sqlalchemy.orm import Session
 
 from app.db.connection import get_session
 from app.schemas.flat_form import FlatForm
-from app.utils.ml.ml_caller import ml_call_prediction
 from app.utils.ml.table_file_reader import read_df
 from app.utils.ml.district_converter import find_district
 
@@ -37,7 +36,7 @@ async def post_flats_page(
     # )
 
     district = find_district(form_data.district)
-
+    print(district)
     return {"Рассчёт": "10 563 00"}
 
     # return templates.TemplateResponse(
