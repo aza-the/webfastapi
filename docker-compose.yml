@@ -6,6 +6,8 @@ services:
     image: azathe666/flats
     volumes:
       - static_value:/code/static/
+    ports:
+      - "${APP_PORT}:3000"
     env_file:
       - .env
   db:
