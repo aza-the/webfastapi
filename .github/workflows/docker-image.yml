@@ -45,6 +45,23 @@ jobs:
         run: |
           poetry run python -m pytest --verbosity=2 --showlocals --log-level=DEBUG
 
+      - name: If tests not passed - send message to Nikolay
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.NIKOLAY_TELEGRAM }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: Тесты не пройдены! Нужно исправлять🤯🤯
+      
+      - name: If tests not passed - send message to Azamat
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.AZAMAT_TELEGRAM }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: Тесты не пройдены! Нужно исправлять🤯🤯
+        
+
   build_and_push_to_docker_hub:
      name: Push Docker image to Docker Hub
      runs-on: ubuntu-latest
