@@ -1,5 +1,7 @@
 ymaps.ready(init);
 
+let address;
+
 function init() {
     const infodiv = document.getElementById('infodiv')
     const infodiv1 = document.getElementById('infodiv1')
@@ -53,17 +55,20 @@ function init() {
         return element;
     }
 
+
+
     let loc_idx = 0;
     const find = document.getElementById('formelement_place_next');
     find.addEventListener( "click", () => {
         const suggest = document.getElementById('suggest');
-
+        address = suggest.value;
         ymaps.geocode(suggest.value, { results : 1 }).then(function (res) {
 
             return ymaps.geocode(res.geoObjects.get(0).geometry.getCoordinates(), { kind: 'district', results: 1 });
     
         }).then(function (res) {
             
+
             if(loc_idx == 0){
                 const result = res.geoObjects.get(0).properties.getAll();
                 const district = result.text;
@@ -96,6 +101,12 @@ function init() {
             infodiv.appendChild(create_h2("Время"));
             infodiv.appendChild(create_p(underground_time.value + " м " + undergorund_get_type));
 
+            infodiv1.appendChild(create_h2_1("Метро"));
+            infodiv1.appendChild(create_p_1(underground_station.value));
+
+            infodiv1.appendChild(create_h2_1("Время"));
+            infodiv1.appendChild(create_p_1(underground_time.value + " м " + undergorund_get_type));
+
             metro_idx_ += 1;
         }
 
@@ -116,6 +127,10 @@ function init() {
     
             infodiv.appendChild(create_h2("О квартире"));
             infodiv.appendChild(create_p("Комнат: " + flats.value + ", общая площадь: " +  flat_size.value + " кв," + " этаж " + storey.value + " из " + storeys.value, "200px"));
+
+            infodiv1.appendChild(create_h2_1("О квартире"));
+            infodiv1.appendChild(create_p_1("Комнат: " + flats.value + ", общая площадь: " +  flat_size.value + " кв," + " этаж " + storey.value + " из " + storeys.value, "200px"));
+
             flat_next_idx += 1;
         }
     });
@@ -130,9 +145,12 @@ function init() {
     
             infodiv.appendChild(create_h2("О здании"));
             infodiv.appendChild(create_p("Год постройки: " + date_constrcucted.value + ", тип дома: " + construction_type, "200px"));
+
+            infodiv1.appendChild(create_h2_1("О здании"));
+            infodiv1.appendChild(create_p_1("Год постройки: " + date_constrcucted.value + ", тип дома: " + construction_type, "200px"));
+
             building_next_idx += 1;
         }
-
     });
 
 }
@@ -152,14 +170,12 @@ function submitForm() {
         })
         .then(response => response.text())
         .then(data => {
-            document.getElementById("responseArea").innerHTML = data;
+            data = data.split('"');
+            document.getElementById("responseArea").innerHTML = data[1] + ": " + data[3];
         })
         .catch(error => {
             console.error(error);
         });
-    
-
-    // $("#infodiv").prependTo("#info_trash");
 
     const style = document.createElement("style");
     style.textContent = `
@@ -195,8 +211,5 @@ function submitForm() {
     `;
 
     document.head.appendChild(style);
-
-
-
 
  }

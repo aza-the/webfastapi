@@ -300,6 +300,7 @@ html, body {
 
 .form-check-label img
 {
+    cursor: pointer;
     width: 100px;
     height: 100px;
     transition: 1s;
@@ -314,8 +315,8 @@ html, body {
 
 #map {
     margin-top: 10px;
-    height: 400px;
-    width: 500px; 
+    height: 72%;
+    width: 40%; 
 }
 
 #date_constrcucted {
@@ -378,7 +379,12 @@ html, body {
 }
 
 .inner_form_check {
+    cursor: pointer;
     padding-left: 5px;
+}
+
+.inner_form_check p{
+    cursor: pointer;
 }
 
 .inner_form_check input {
@@ -392,6 +398,7 @@ html, body {
 }
 
 .wall{
+    cursor: pointer;
     margin-top: 2%;
     margin-left: 3%; 
 }
@@ -455,4 +462,10 @@ html, body {
 #infodiv1 {
     float: left;
     width: 50%;
+}
+
+#responseArea{
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: 600;
 }
