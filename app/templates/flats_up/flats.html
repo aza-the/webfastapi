@@ -111,10 +111,76 @@
                         <div class="formelement" id="formelement_about_flat">
                             <h1>О квартире</h1>
                             <input class="form-control" name="num_of_rooms" type="number" id="flats" placeholder="Кол-во комнат">
-                            <input class="form-control" name="flat_size" type="number" id="flat_size" step="0.01" placeholder="Размер квартиры">
-                            <input class="form-control" name="kitchen_size" type="number" id="kitchen_size" step="0.01" placeholder="Размер кухни">
-                            <input class="form-control" name="storey" type="number" id="storey" placeholder="Этаж">
-                            <input class="form-control" name="storeys" type="number" id="storeys" placeholder="Этажность">
+                            <table class="flat_option">
+                                <tr>
+                                    <th>
+                                        <input class="form-control" name="flat_size" type="number" id="flat_size" step="0.01" placeholder="Размер квартиры">
+                                    </th>
+                                    <th>
+                                        <input class="form-control" name="kitchen_size" type="number" id="kitchen_size" step="0.01" placeholder="Размер кухни">
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input class="form-control" name="storey" type="number" id="storey" placeholder="Этаж">
+                                    </th>
+                                    <th>
+                                        <input class="form-control" name="storeys" type="number" id="storeys" placeholder="Этажность">
+                                    </th>
+                                </tr>
+                            </table>
+                            <table>
+                                <th>
+                                    <th>
+                                        <div class="form-check"id="radio_renovation">
+                                            <div class="inner_form_check">
+                                                <input class="form-check-input" type="radio" name="renovation" value="Без ремонта" id="no_renovation">
+                                                <label class="form-check-label" for="no_renovation">
+                                                    <p class="r">Без ремонта</p>
+                                                </label>    
+                                            </div>
+                                        </div>
+                                        <div class="form-check"id="radio_renovation">
+                                            <div class="inner_form_check">
+                                                <input class="form-check-input" type="radio" name="renovation" value="Косметический" id="cosmetic_renovation">
+                                                <label class="form-check-label" for="cosmetic_renovation">
+                                                    <p class="r">Косметический</p>
+                                                </label>    
+                                            </div>
+                                        </div>
+                                    </th>
+                                </th>
+                                <th>
+                                    <th>
+                                        <div class="form-check"id="radio_renovation">
+                                            <div class="inner_form_check">
+                                                <input class="form-check-input" type="radio" name="renovation" value="Дизайнерский" id="design_renovation">
+                                                <label class="form-check-label" for="design_renovation">
+                                                    <p class="r">Дизайнерский</p>
+                                                </label>    
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check"id="radio_renovation">
+                                            <div class="inner_form_check">
+                                                <input class="form-check-input" type="radio" name="renovation" value="Евроремонт" id="_renovation">
+                                                <label class="form-check-label" for="_renovation">
+                                                    <p class="r">Евроремонт</p>
+                                                </label>    
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check"id="radio_renovation">
+                                            <div class="inner_form_check">
+                                                <input class="form-check-input" type="radio" name="renovation" value="None" id="idk_renovation">
+                                                <label class="form-check-label" for="idk_renovation">
+                                                    <p class="r">Не знаю</p>
+                                                </label>    
+                                            </div>
+                                        </div>
+                                    </th>
+                                </th>
+                            </table>
                             <div class="next_button">
                                 <input class="btn btn-primary" type="button" id="formelement_about_flat_next"  value="Далее">
                             </div>

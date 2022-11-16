@@ -229,6 +229,7 @@ html, body {
 }
 
 .get_type {
+    font-family: monospace;
     margin-top: 1%;
     margin-left: 14%;
 }
@@ -249,8 +250,8 @@ html, body {
 }
 
 #flat_size{
-    margin-top: 2%;
-    margin-left: 12.5%;
+    margin-right: 10px;
+    margin-bottom: 10px;
     width: 185px;
     height: 30px;
     font-family: monospace;
@@ -258,8 +259,7 @@ html, body {
 }
 
 #kitchen_size{
-    margin-top: 2%;
-    margin-left: 12.5%;
+    margin-bottom: 10px;
     width: 185px;
     height: 30px;
     font-family: monospace;
@@ -267,8 +267,6 @@ html, body {
 }
 
 #storey{
-    margin-top: 2%;
-    margin-left: 12.5%;
     width: 185px;
     height: 30px;
     font-family: monospace;
@@ -276,11 +274,16 @@ html, body {
 }
 
 #storeys{
-    margin-top: 2%;
-    margin-left: 12.5%;
     width: 185px;
     height: 30px;
     font-family: monospace;
+
+}
+
+.flat_option
+{
+    margin-top: 1%;
+    margin-left: 6%;
 
 }
 
@@ -369,14 +372,16 @@ html, body {
     margin-left: -28px;
 }
 
-.r{
-    transition: 300ms;
-}
-
 #radio_construction:hover p.r{
     margin-top: 17px;
 
 }
+
+.r{
+    transition: 300ms;
+}
+
+
 
 .inner_form_check {
     cursor: pointer;
@@ -468,4 +473,44 @@ html, body {
     font-family: monospace;
     font-size: 1.2em;
     font-weight: 600;
+}
+
+#radio_renovation{
+    border: solid 2px #c8c8c8;
+    color: #c8c8c8;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    transition: 300ms;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.8em;
+    font-weight: 800;
+    margin: 10px;
+}
+
+#radio_renovation label{
+    transition: 300ms;
+}
+
+#radio_renovation:hover{
+    border: solid 5px #fff;
+    color: #fff;
+    font-size: 1.2em;
+    height: 80px;
+}
+
+
+#radio_renovation input{
+    transition: 400ms;
+}
+
+#radio_renovation:hover input{
+    margin-top: 15%;
+    margin-left: -28px;
+}
+
+#radio_renovation:hover p.r{
+    margin-top: 17px;
+
 }

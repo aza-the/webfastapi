@@ -15,6 +15,7 @@ class FlatForm:
     kitchen_size: float = Form(0.0)
     storey: int = Form(0)
     storeys: int = Form(0)
+    renovation: str = Form("")
 
     construction_date: int = Form(0)
     construction_type: str = Form("")
