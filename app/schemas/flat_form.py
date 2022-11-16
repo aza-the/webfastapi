@@ -6,9 +6,9 @@ from pydantic.dataclasses import dataclass
 class FlatForm:
     district: str = Form("")
 
-    undergorund_station: str = Form("")
-    undergorund_time: int = Form(0)
-    undergorund_get_type: str = Form("")
+    underground_station: str = Form("")
+    underground_time: int = Form(0)
+    underground_get_type: str = Form("")
 
     num_of_rooms: int = Form(0)
     flat_size: float = Form(0.0)

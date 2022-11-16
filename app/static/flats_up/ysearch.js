@@ -1,5 +1,8 @@
 ymaps.ready(init);
 
+const first = 1200
+const second = 700
+
 let address;
 
 function init() {
@@ -9,9 +12,12 @@ function init() {
     // Создаем выпадающую панель с поисковыми подсказками и прикрепляем ее к HTML-элементу по его id.
     var suggestViewOfLocation = new ymaps.SuggestView('suggest', {results: 4, boundedBy: [[55, 36], [56, 38]]});
 
-    var suggestViewOfUndergorundStation = new ymaps.SuggestView('underground_station', {provider: provider, results: 4});
+    var suggestViewOfUndergroundStation = new ymaps.SuggestView('underground_station', {provider: provider, results: 4});
 
     function create_h2(text){
+        if($(window).width() < first){
+            return
+        }
         const element = document.createElement("h2");
         element.innerText = text;
         element.style.textAlign = "right";
@@ -23,6 +29,9 @@ function init() {
     }
 
     function create_h2_1(text){
+        if($(window).width() < first){
+            return
+        }
         const element = document.createElement("h2");
         element.innerText = text;
         element.style.fontFamily = "monospace";
@@ -33,6 +42,9 @@ function init() {
     }
 
     function create_p(text, size="auto"){
+        if($(window).width() < first){
+            return
+        }
         const element = document.createElement("p");
         element.innerText = text;
         element.style.textAlign = "right";
@@ -45,6 +57,9 @@ function init() {
         return element;
     }
     function create_p_1(text, size="auto"){
+        if($(window).width() < first){
+            return
+        }
         const element = document.createElement("p");
         element.innerText = text;
         element.style.fontFamily = "monospace";
@@ -67,13 +82,13 @@ function init() {
             return ymaps.geocode(res.geoObjects.get(0).geometry.getCoordinates(), { kind: 'district', results: 1 });
     
         }).then(function (res) {
-            
+            const result = res.geoObjects.get(0).properties.getAll();
+            const district = result.text;
+            const place_to_save = document.getElementById("suggest");
+            place_to_save.value = district;
 
             if(loc_idx == 0){
-                const result = res.geoObjects.get(0).properties.getAll();
-                const district = result.text;
-                const place_to_save = document.getElementById("suggest");
-                place_to_save.value = district;
+                
                 
                 infodiv.appendChild(create_h2("Местоположение"));
                 infodiv.appendChild(create_p(district, "210px"));
@@ -94,18 +109,18 @@ function init() {
         if(metro_idx_ == 0){
             const underground_station = document.getElementById("underground_station");
             const underground_time = document.getElementById("underground_time");
-            const undergorund_get_type = document.querySelector('input[name="undergorund_get_type"]:checked').value;
+            const underground_get_type = document.querySelector('input[name="underground_get_type"]:checked').value;
             infodiv.appendChild(create_h2("Метро"));
             infodiv.appendChild(create_p(underground_station.value));
 
             infodiv.appendChild(create_h2("Время"));
-            infodiv.appendChild(create_p(underground_time.value + " м " + undergorund_get_type));
+            infodiv.appendChild(create_p(underground_time.value + " м " + underground_get_type));
 
             infodiv1.appendChild(create_h2_1("Метро"));
             infodiv1.appendChild(create_p_1(underground_station.value));
 
             infodiv1.appendChild(create_h2_1("Время"));
-            infodiv1.appendChild(create_p_1(underground_time.value + " м " + undergorund_get_type));
+            infodiv1.appendChild(create_p_1(underground_time.value + " м " + underground_get_type));
 
             metro_idx_ += 1;
         }
@@ -161,6 +176,8 @@ function scroll_to(obj_scrollto){
     obj_scrollto.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 }
 
+
+
 function submitForm() {
     var formElement = document.getElementById('form_flat');
     var data = new FormData(formElement);
@@ -172,43 +189,82 @@ function submitForm() {
         .then(data => {
             data = data.split('"');
             document.getElementById("responseArea").innerHTML = data[1] + ": " + data[3];
+            document.getElementById("responseArea2").innerHTML = data[1] + ": " + data[3];
         })
         .catch(error => {
             console.error(error);
         });
 
     const style = document.createElement("style");
-    style.textContent = `
-    .formclass {
-        position: fixed;
-        display: block;
-        background-color: #418493;
-        border-left: solid 2px #387382;
-        border-right: solid 0px #387382;
-        margin-left: 22%;
-        height: 83%;
-        width: 45%;
-        border-radius: 10px;
-        padding: 2%;
-        color: #fff;
-        transition: 500ms;
-        z-index: 1;
+
+    if($(window).width() >= first){
+        style.textContent = `
+        .formclass {
+            position: fixed;
+            display: block;
+            background-color: #418493;
+            border-left: solid 2px #387382;
+            border-right: solid 0px #387382;
+            margin-left: 22%;
+            height: 83%;
+            width: 45%;
+            border-radius: 10px;
+            padding: 2%;
+            color: #fff;
+            transition: 500ms;
+            z-index: 1;
+        }
+        
+        .mapsclass {
+            position: fixed;
+            display: block;
+            background-color: #3e7e8c;
+            border-right: solid 2px #387382;
+            margin-left: 2%;
+            height: 83%;
+            width: 45%; 
+            border-radius: 10px;
+            padding: 2%;
+            transition: 500ms;
+            z-index: 1;
+        }
+        `;
     }
-    
-    .mapsclass {
-        position: fixed;
-        display: block;
-        background-color: #3e7e8c;
-        border-right: solid 2px #387382;
-        margin-left: 2%;
-        height: 83%;
-        width: 45%; 
-        border-radius: 10px;
-        padding: 2%;
-        transition: 500ms;
-        z-index: 1;
+    else if($(window).width() >= second){
+        style.textContent = `
+        .formclass {
+            position: fixed;
+            display: block;
+            background-color: #418493;
+            border-left: solid 2px #387382;
+            border-right: solid 0px #387382;
+            margin-left: 2%;
+            height: 83%;
+            width: 45%;
+            border-radius: 10px;
+            padding: 2%;
+            color: #fff;
+            transition: 500ms;
+            z-index: 1;
+        }
+        
+        .mapsclass {
+            position: fixed;
+            display: block;
+            background-color: #3e7e8c;
+            border-right: solid 2px #387382;
+            margin-left: 2%;
+            height: 83%;
+            width: 45%; 
+            border-radius: 10px;
+            padding: 2%;
+            transition: 500ms;
+            z-index: 1;
+        }
+        `;
     }
-    `;
+
+
 
     document.head.appendChild(style);
 
