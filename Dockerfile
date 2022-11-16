@@ -1,9 +1,14 @@
-# syntax=docker/dockerfile:1
-
 FROM python:3.10
 
 WORKDIR /app
 
+COPY poetry.lock pyproject.toml /app/
+
+RUN python3 -m pip install poetry
+RUN poetry config virtualenvs.create true
+RUN poetry config virtualenvs.in-project true
+RUN poetry install
+
 COPY . .
 
-CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "3000"]
