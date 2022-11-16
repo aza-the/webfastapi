@@ -1,10 +1,12 @@
+# pylint: disable=unspecified-encoding,too-many-locals,too-many-arguments,
+# pylint: disable=consider-using-f-string,consider-using-enumerate,duplicate-code
+
+
 import csv
-import json
-
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-
 import decimal
+import json
+import os
+
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
@@ -12,13 +14,17 @@ from tensorflow.keras import layers
 
 from . import make
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 CHECKPOINT_PATH = "app/utils/ml/trained_w/cp.ckpt"
 LEARNING_RATE = 0.00006
+
 
 def normal_int(num: int | float):
     num = int(num * 1000000)
     num = decimal.Decimal(int(num))
-    return "{0:,}".format(num).replace(","," ")
+    return "{0:,}".format(num).replace(",", " ")
+
 
 def run_preditcion_on_model(
     district: str,
@@ -34,9 +40,9 @@ def run_preditcion_on_model(
     type_of_building: str,
     type_of_walls: str,
 ) -> float:
-    """ 
-        Gets a 'list' of parameters of a flat and 
-        then makes a predictions based on the trained weights.
+    """
+    Gets a 'list' of parameters of a flat and
+    then makes a predictions based on the trained weights.
     """
 
     district_dict: dict
@@ -64,24 +70,12 @@ def run_preditcion_on_model(
     with open(f'./{make.FOLDER_PATH}/type_of_walls_dict.json') as file:
         type_of_walls_dict = json.load(file)
 
-    print(district)
-    print(fix)
-    print(metro_name)
-    print(metro_get_type)
-    print(type_of_building)
-    print(type_of_walls)
     district = district_dict[district]
     fix = fix_dict[fix]
     metro_name = metro_name_dict[metro_name]
     metro_get_type = metro_get_type_dict[metro_get_type]
     type_of_building = type_of_building_dict[type_of_building]
     type_of_walls = type_of_walls_dict[type_of_walls]
-    print(district)
-    print(fix)
-    print(metro_name)
-    print(metro_get_type)
-    print(type_of_building)
-    print(type_of_walls)
 
     model = build_model(LEARNING_RATE)
 
@@ -103,20 +97,22 @@ def run_preditcion_on_model(
     mean = np.array(mean, dtype=float)
     std = np.array(std, dtype=float)
 
-    flat = [[
-        district,
-        metro_name,
-        metro_time,
-        metro_get_type,
-        size,
-        kitchen,
-        floor,
-        floors,
-        constructed,
-        fix,
-        type_of_building,
-        type_of_walls,
-    ]]
+    flat = [
+        [
+            district,
+            metro_name,
+            metro_time,
+            metro_get_type,
+            size,
+            kitchen,
+            floor,
+            floors,
+            constructed,
+            fix,
+            type_of_building,
+            type_of_walls,
+        ]
+    ]
 
     flat = np.array(flat, dtype=float)
     flat -= mean
@@ -127,10 +123,9 @@ def run_preditcion_on_model(
 
 
 def train_model() -> None:
-    """ 
-        Trains model with prepared data and saves final weights for following predictions. 
     """
-
+    Trains model with prepared data and saves final weights for following predictions.
+    """
 
     flats = []
     with open(make.CSV_VECTORIZED_FILE_NAME) as file:
@@ -142,15 +137,15 @@ def train_model() -> None:
     # That will increase the general accuracy of the model.
     count = 0
     for i in range(1, len(flats)):
-        if(int(flats[i][0]) > 25000000):
+        if int(flats[i][0]) > 25000000:
             flats[i][0] = '25000000'
             count += 1
     print(f"Count: {count}")
 
-    flats = flats[1:] # Removing first row beacuse it is not the data row
+    flats = flats[1:]  # Removing first row beacuse it is not the data row
     flats = np.array(flats, dtype=float)
     np.random.shuffle(flats)
-    targets = np.delete(flats, [1,2,3,4,5,6,7,8,9,10,11,12], axis=1)
+    targets = np.delete(flats, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], axis=1)
     flats = np.delete(flats, [0], axis=1)
 
     N = len(flats)
@@ -161,7 +156,7 @@ def train_model() -> None:
     train_data = flats[:percent_80]
     test_data = flats[percent_80:]
 
-    targets /= 1000000.   # Converting 17 560 000 to 17.56
+    targets /= 1000000.0  # Converting 17 560 000 to 17.56
     train_targets = targets[:percent_80]
     test_targets = targets[percent_80:]
 
@@ -186,12 +181,10 @@ def train_model() -> None:
 
     # Create a callback that saves the model's weights
     cp_callback = tf.keras.callbacks.ModelCheckpoint(
-        filepath=CHECKPOINT_PATH,
-        save_weights_only=True,
-        verbose=1
-    )    
+        filepath=CHECKPOINT_PATH, save_weights_only=True, verbose=1
+    )
 
-    history = model.fit(
+    _ = model.fit(
         train_data,
         train_targets,
         epochs=epochs,
@@ -206,19 +199,21 @@ def train_model() -> None:
 
 def build_model(learning_rate: float):
     """
-        Makes a Sequential model using the given learning rate in the optimizer.
+    Makes a Sequential model using the given learning rate in the optimizer.
     """
 
-    model = keras.Sequential([
-        layers.Dense(64, activation="relu"),
-        layers.Dropout(0.5),
-        layers.Dense(64, activation="relu"),
-        layers.Dense(1),
-    ])
+    model = keras.Sequential(
+        [
+            layers.Dense(64, activation="relu"),
+            layers.Dropout(0.5),
+            layers.Dense(64, activation="relu"),
+            layers.Dense(1),
+        ]
+    )
     model.compile(
         optimizer=tf.keras.optimizers.RMSprop(learning_rate=learning_rate),
         loss="mse",
-        metrics=["mae"]
+        metrics=["mae"],
     )
     return model
 

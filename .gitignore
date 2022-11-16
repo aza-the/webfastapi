@@ -8,10 +8,6 @@ ready.json
 
 /webfastapi-venv
 .vscode/
-versions/
-
-# Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,venv
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,venv
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

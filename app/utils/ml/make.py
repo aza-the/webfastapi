@@ -1,7 +1,11 @@
+# pylint: disable=broad-except,unspecified-encoding,
+# pylint: disable=too-many-locals,too-many-branches,too-many-statements,
+# pylint: disable=consider-iterating-dictionary
+
 import csv
 import json
-import re
 import os
+import re
 
 import numpy as np
 
@@ -12,10 +16,10 @@ CSV_VECTORIZED_FILE_NAME = f'{FOLDER_PATH}/flats_v.csv'
 
 
 def pre_main():
-    """ 
-        Reads the JSON_OF_RAW_DATA_FILE_NAME and makes a csv file from it. 
     """
-    
+    Reads the JSON_OF_RAW_DATA_FILE_NAME and makes a csv file from it.
+    """
+
     try:
         os.mkdir(FOLDER_PATH)
     except Exception:
@@ -45,7 +49,7 @@ def pre_main():
             unit = re.findall(r'\d+', unit)[0]
             constructeds.append(unit)
         except Exception:
-            pass 
+            pass
 
     kitchens = np.array(kitchens, dtype=float)
     constructeds = np.array(constructeds, dtype=int)
@@ -70,7 +74,7 @@ def pre_main():
             idx = -1
             for i in metro_list:
                 idx = flats[key]['metro'][i].find('пешком')
-                if(idx != -1):
+                if idx != -1:
                     metro_name = i
                     break
 
@@ -81,7 +85,7 @@ def pre_main():
             else:
                 for i in metro_list:
                     idx = flats[key]['metro'][i].find('транспорте')
-                    if(idx != -1):
+                    if idx != -1:
                         metro_name = i
                         break
                 if idx != -1:
@@ -100,10 +104,10 @@ def pre_main():
             continue
 
         try:
-            kitchen = flats[key]['Кухня'] 
-            kitchen = re.findall(r'\d+', kitchen)[0] 
+            kitchen = flats[key]['Кухня']
+            kitchen = re.findall(r'\d+', kitchen)[0]
         except Exception:
-            kitchen = kit_mean      
+            kitchen = kit_mean
 
         floor = flats[key]['Этаж']
         floor = re.findall(r'\d+', floor)[0]
@@ -131,36 +135,37 @@ def pre_main():
         except Exception:
             type_of_walls = 'None'
 
-
-        result.append([
-            price,  
-            district, 
-            metro_name, 
-            metro_time, 
-            metro_get_type,
-            size, 
-            kitchen, 
-            floor, 
-            floors, 
-            constructed,
-            fix,
-            type_of_building,
-            type_of_walls,
-        ])
+        result.append(
+            [
+                price,
+                district,
+                metro_name,
+                metro_time,
+                metro_get_type,
+                size,
+                kitchen,
+                floor,
+                floors,
+                constructed,
+                fix,
+                type_of_building,
+                type_of_walls,
+            ]
+        )
 
     with open(CSV_FILE_NAME, "w", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(
             [
-                'price',  
-                'district', 
-                'metro_name', 
-                'metro_time', 
+                'price',
+                'district',
+                'metro_name',
+                'metro_time',
                 'metro_get_type',
-                'size', 
-                'kitchen', 
-                'floor', 
-                'floors', 
+                'size',
+                'kitchen',
+                'floor',
+                'floors',
                 'constructed',
                 'fix',
                 'type_of_building',
@@ -170,9 +175,10 @@ def pre_main():
         for flat in result:
             writer.writerow(flat)
 
+
 def dict_maker(idx: int, readed: list) -> dict:
     """
-        Gets list with special index and makes a dictionary from it.
+    Gets list with special index and makes a dictionary from it.
     """
 
     new_dict = {}
@@ -183,10 +189,11 @@ def dict_maker(idx: int, readed: list) -> dict:
             count += 1
     return new_dict
 
+
 def make():
-    """ 
-        Reads the CSV_FILE_NAME and makes a csv file 
-        with replacing all str values with nums from it. 
+    """
+    Reads the CSV_FILE_NAME and makes a csv file
+    with replacing all str values with nums from it.
     """
 
     readed = []
@@ -195,27 +202,27 @@ def make():
         for row in reader:
             readed.append(np.array(row))
 
-    distrcit_dict         = dict_maker(1, readed)
-    metro_name_dict       = dict_maker(2, readed)
-    metro_get_type_dict   = dict_maker(4, readed)
-    fix_dict              = dict_maker(10, readed)
+    distrcit_dict = dict_maker(1, readed)
+    metro_name_dict = dict_maker(2, readed)
+    metro_get_type_dict = dict_maker(4, readed)
+    fix_dict = dict_maker(10, readed)
     type_of_building_dict = dict_maker(11, readed)
-    type_of_walls_dict    = dict_maker(12, readed)
+    type_of_walls_dict = dict_maker(12, readed)
 
     file_names = [
         f'./{FOLDER_PATH}/distrcit_dict.json',
-        f'./{FOLDER_PATH}/metro_name_dict.json', 
+        f'./{FOLDER_PATH}/metro_name_dict.json',
         f'./{FOLDER_PATH}/metro_get_type_dict.json',
-        f'./{FOLDER_PATH}/fix_dict.json', 
-        f'./{FOLDER_PATH}/type_of_building_dict.json', 
+        f'./{FOLDER_PATH}/fix_dict.json',
+        f'./{FOLDER_PATH}/type_of_building_dict.json',
         f'./{FOLDER_PATH}/type_of_walls_dict.json',
     ]
     files = [
         distrcit_dict,
-        metro_name_dict, 
+        metro_name_dict,
         metro_get_type_dict,
-        fix_dict, 
-        type_of_building_dict, 
+        fix_dict,
+        type_of_building_dict,
         type_of_walls_dict,
     ]
     count = 0
