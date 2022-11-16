@@ -6,10 +6,10 @@ services:
     image: azathe666/flats
     volumes:
       - static_value:/code/static/
-    ports:
-      - "${APP_PORT}:3000"
     env_file:
       - .env
+    ports:
+      - '${APP_PORT}:3000'
   db:
     container_name: postgresql
     image: 'postgres:14'
@@ -17,7 +17,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - '${POSTGRES_PORT}:5432'
     depends_on:
       - app
 
