@@ -1,26 +1,27 @@
-version: '3.5'
+version: "3.2"
 
 services:
-  app:
-    container_name: app 
-    image: azathe666/flats
-    volumes:
-      - static_value:/code/static/
-    env_file:
-      - .env
-    ports:
-      - '${APP_PORT}:3000'
-  db:
-    container_name: postgresql
-    image: 'postgres:14'
+
+  database:
+    image: postgres:14
     restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  app:
+    image: azathe666/flats
     env_file:
       - .env
     ports:
-      - '${POSTGRES_PORT}:5432'
+      - ${APP_PORT}:8080
     depends_on:
-      - app
+      - database
 
 volumes:
   postgres_data:
-  static_value:

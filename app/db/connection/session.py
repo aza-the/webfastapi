@@ -6,7 +6,8 @@ from app.config import get_settings
 
 class SessionManager:
     """
-    A class that implements the necessary functionality for working with the database:
+    A class that implements the necessary functionality
+    for working with the database:
     issuing sessions, storing and updating connection settings.
     """
 

@@ -82,7 +82,6 @@ jobs:
             cd webfastapi
             sudo git pull
             sudo docker-compose stop
-            sudo docker-compose rm web
             rm .env && touch .env || touch .env
             echo APP_HOST=${{ secrets.APP_HOST }} >> .env
             echo APP_PORT=${{ secrets.APP_PORT }} >> .env
@@ -90,7 +89,9 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
             echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
-            sudo docker-compose up -d 
+            echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
+            sudo docker-compose up -d
+            sudo docker system prune --force
 
   send_message:
     runs-on: ubuntu-latest
