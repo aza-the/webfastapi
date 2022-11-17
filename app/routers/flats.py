@@ -95,19 +95,20 @@ async def create_file(request: Request):
 async def create_upload_file(
     file: UploadFile, db: Session = Depends(get_session)
 ):
+    try:
+        content = await file.read()
 
-    content = await file.read()
+        df = pd.read_excel(content)
+        df = read_df(df, db)
+        df.to_excel(
+            'app/static/flats/file_transfer/df_to_excel.xlsx',
+            index=False,
+            header=True,
+        )
 
-    df = pd.read_excel(content)
-    df = read_df(df, db)
-    df.to_excel(
-        'app/static/flats/file_transfer/df_to_excel.xlsx',
-        index=False,
-        header=True,
-    )
-
-    return FileResponse('app/static/flats/file_transfer/df_to_excel.xlsx')
-
+        return FileResponse('app/static/flats/file_transfer/df_to_excel.xlsx')
+    except:
+        return FileResponse('app/static/flats/file_transfer/example.xlsx')
 
 @router.get('/flats/example/')
 async def get_example_xlsx():
