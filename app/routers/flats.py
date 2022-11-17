@@ -95,6 +95,7 @@ async def create_file(request: Request):
 async def create_upload_file(
     file: UploadFile, db: Session = Depends(get_session)
 ):
+
     content = await file.read()
 
     df = pd.read_excel(content)

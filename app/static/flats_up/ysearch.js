@@ -76,8 +76,16 @@ function init() {
     const find = document.getElementById('formelement_place_next');
     find.addEventListener( "click", () => {
         const suggest = document.getElementById('suggest');
+        if(suggest.value == ""){
+            return;
+        }
+
         address = suggest.value;
+        console.log(address);
+
         ymaps.geocode(suggest.value, { results : 1 }).then(function (res) {
+
+
 
             return ymaps.geocode(res.geoObjects.get(0).geometry.getCoordinates(), { kind: 'district', results: 1 });
     
@@ -132,9 +140,11 @@ function init() {
     let flat_next_idx = 0;
     const formelement_about_flat_next = document.getElementById("formelement_about_flat_next");
     formelement_about_flat_next.addEventListener("click", () => {
-
         if (flat_next_idx == 0){
             const flats = document.getElementById("flats");
+            if(flats.value == ""){
+                return;
+            }
             const flat_size = document.getElementById("flat_size");
             const kitchen_size = document.getElementById("kitchen_size");
             const storey = document.getElementById("storey");
@@ -176,8 +186,6 @@ function scroll_to(obj_scrollto){
     obj_scrollto.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 }
 
-
-
 function submitForm() {
     var formElement = document.getElementById('form_flat');
     var data = new FormData(formElement);
@@ -185,8 +193,14 @@ function submitForm() {
             method: 'POST',
             body: data,
         })
-        .then(response => response.text())
+        .then(response => {
+            if(response.status >= 400){
+                return '"Итог":"Недостаточно данных"';
+            }
+            return response.text();
+        })
         .then(data => {
+            console.log(data);
             data = data.split('"');
             document.getElementById("responseArea").innerHTML = data[1] + ": " + data[3];
             document.getElementById("responseArea2").innerHTML = data[1] + ": " + data[3];
@@ -264,7 +278,10 @@ function submitForm() {
         `;
     }
 
-
+    loc_idx = 0;
+    metro_idx_ = 0;
+    flat_next_idx = 0;
+    building_next_idx = 0;
 
     document.head.appendChild(style);
 
