@@ -7,6 +7,8 @@ html, body {
     max-width: 100%;
 }
 
+
+ /* first */
 @media (min-width:1200px){
 
     @keyframes background-pan {
@@ -526,6 +528,10 @@ html, body {
 
     }
 
+    #reload_btn {
+        display: none;
+    }
+
 }
 
 html, body {
@@ -538,6 +544,8 @@ html, body {
 }
 
  /* ! 500px - 1200px */
+
+/* second */
 
 @media (min-width:500px) and (max-width: 1200px){
 
@@ -1054,6 +1062,10 @@ html, body {
 
     }
 
+    #reload_btn {
+        display: none;
+    }
+
 }
 
 /* ! 390 < 500 */
@@ -1381,7 +1393,7 @@ html, body {
 
     #map {
         margin-top: 10px;
-        height: 72%;
+        height: 65%;
         width: 79.5%; 
     }
 
@@ -1907,7 +1919,7 @@ html, body {
 
     #map {
         margin-top: 10px;
-        height: 72%;
+        height: 65%;
         width: 79.5%; 
     }
 

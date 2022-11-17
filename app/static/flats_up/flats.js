@@ -156,3 +156,8 @@ formelement_about_building_find_out.addEventListener("click", () => {
     scroll_to(info_details)
 });
 
+
+const reload_btn = document.getElementById("reload_btn");
+reload_btn.addEventListener ("click", () => {
+    location.href = "/flats/";
+});
