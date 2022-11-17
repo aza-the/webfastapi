@@ -468,6 +468,11 @@ html, body {
         margin-right: 5px;
     }
 
+    #formelement_place_back, #formelement_underground_back, #formelement_about_flat_back, #formelement_about_building_back, #formelement_about_building_back, #formelement_walls_back {
+        display: none;
+        margin-right: 9px;
+    }
+
     #responseArea {
         color: white;
     }
@@ -1003,6 +1008,11 @@ html, body {
         margin-right: 5px;
     }
 
+    #formelement_place_back, #formelement_underground_back, #formelement_about_flat_back, #formelement_about_building_back, #formelement_about_building_back, #formelement_walls_back {
+        display: none;
+        margin-right: 9px;
+    }
+
     #responseArea {
         color: white;
     }
@@ -1532,6 +1542,10 @@ html, body {
         margin-left: 14%;
     }
 
+    #formelement_place_back, #formelement_underground_back, #formelement_about_flat_back, #formelement_about_building_back, #formelement_about_building_back, #formelement_walls_back {
+        margin-right: 9px;
+    }
+
     #responseArea {
         color: white;
     }
@@ -2058,6 +2072,10 @@ html, body {
         margin-left: 14%;
     }
 
+    #formelement_place_back, #formelement_underground_back, #formelement_about_flat_back, #formelement_about_building_back, #formelement_about_building_back, #formelement_walls_back {
+        margin-right: 9px;
+    }
+
     #responseArea {
         color: white;
     }
@@ -2125,7 +2143,7 @@ html, body {
 }
 
 #formelement_about_load{
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 

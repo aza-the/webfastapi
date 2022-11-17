@@ -157,7 +157,40 @@ formelement_about_building_find_out.addEventListener("click", () => {
 });
 
 
+// * back button 
+
+
 const reload_btn = document.getElementById("reload_btn");
 reload_btn.addEventListener ("click", () => {
     location.href = "/flats/";
+});
+
+const formelement_place_back = document.getElementById("formelement_place_back");
+formelement_place_back.addEventListener("click", () => {
+    scroll_to(formelement_about);
+    hihglight_obj(formelement_about);
+});
+
+const formelement_underground_back = document.getElementById("formelement_underground_back");
+formelement_underground_back.addEventListener("click", () => {
+    scroll_to(formelement_place);
+    hihglight_obj(formelement_place);
+});
+
+const formelement_about_flat_back = document.getElementById("formelement_about_flat_back");
+formelement_about_flat_back.addEventListener("click", () => {
+    scroll_to(formelement_underground);
+    hihglight_obj(formelement_underground);
+});
+
+const formelement_about_building_back = document.getElementById("formelement_about_building_back");
+formelement_about_building_back.addEventListener("click", () => {
+    scroll_to(formelement_about_flat);
+    hihglight_obj(formelement_about_flat);
+});
+
+const formelement_walls_back = document.getElementById("formelement_walls_back");
+formelement_walls_back.addEventListener("click", () => {
+    scroll_to(formelement_about_building);
+    hihglight_obj(formelement_about_building);
 });
