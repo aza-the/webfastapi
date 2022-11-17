@@ -2,6 +2,10 @@ console.log("FLATS.JS started");
 
 console.log($(window).width());
 
+document.onload = init();
+
+function init(){
+
 const formelement_about_load = document.getElementById("formelement_about_load");
 formelement_about_load.addEventListener("click", () => {
     location.href = "/flats/fileupload/";
@@ -80,7 +84,7 @@ about_building.addEventListener("click", () => {
 }); 
 
 const formelement_walls = document.getElementById("formelement_walls");
-const walls = document.getElementById("walls");
+const walls = document.getElementById("walls"); 
 walls.addEventListener("click", () => {
     scroll_to(formelement_walls);
     hihglight_obj(walls);
@@ -194,3 +198,5 @@ formelement_walls_back.addEventListener("click", () => {
     scroll_to(formelement_about_building);
     hihglight_obj(formelement_about_building);
 });
+
+}

@@ -186,8 +186,6 @@ function scroll_to(obj_scrollto){
     obj_scrollto.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
 }
 
-
-
 function submitForm() {
     var formElement = document.getElementById('form_flat');
     var data = new FormData(formElement);
@@ -195,8 +193,14 @@ function submitForm() {
             method: 'POST',
             body: data,
         })
-        .then(response => response.text())
+        .then(response => {
+            if(response.status >= 400){
+                return '"Итог":"Недостаточно данных"';
+            }
+            return response.text();
+        })
         .then(data => {
+            console.log(data);
             data = data.split('"');
             document.getElementById("responseArea").innerHTML = data[1] + ": " + data[3];
             document.getElementById("responseArea2").innerHTML = data[1] + ": " + data[3];

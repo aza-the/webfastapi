@@ -1953,7 +1953,7 @@ html, body {
         transition: 300ms;
         text-align: center;
         font-family: monospace;
-        font-size: 0.6em;
+        font-size: 0.8em;
         font-weight: 800;
         margin: 10px;
         margin-left: 0;
@@ -1966,7 +1966,7 @@ html, body {
     #radio_construction:hover{
         border: solid 2px #fff;
         color: #fff;
-        font-size: 0.7em;
+        font-size: 0.8em;
         height: 50px;
     }
 
@@ -2050,7 +2050,7 @@ html, body {
         transition: 300ms;
         text-align: center;
         font-family: monospace;
-        font-size: 0.6em;
+        font-size: 0.8em;
         font-weight: 800;
         margin: 10px;
         margin-left: 0;
@@ -2063,7 +2063,7 @@ html, body {
     #radio_wall:hover{
         border: solid 2px #fff;
         color: #fff;
-        font-size: 0.7em;
+        font-size: 0.8em;
         height: 50px;
     }
 
@@ -2099,13 +2099,13 @@ html, body {
     #radio_renovation{
         border: solid 1px #c8c8c8;
         color: #c8c8c8;
-        width: 125px;
+        width: 129px;
         height: 45px;
         border-radius: 10px;
         transition: 300ms;
         text-align: center;
         font-family: monospace;
-        font-size: 0.6em;
+        font-size: 0.8em;
         font-weight: 800;
         margin: 10px;
         margin-left: 0;
@@ -2118,7 +2118,7 @@ html, body {
     #radio_renovation:hover{
         border: solid 2px #fff;
         color: #fff;
-        font-size: 0.7em;
+        font-size: 0.8em;
         height: 50px;
     }
 
