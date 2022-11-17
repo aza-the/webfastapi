@@ -187,6 +187,7 @@ function submitForm() {
         })
         .then(response => response.text())
         .then(data => {
+            console.log(data);
             data = data.split('"');
             document.getElementById("responseArea").innerHTML = data[1] + ": " + data[3];
             document.getElementById("responseArea2").innerHTML = data[1] + ": " + data[3];
