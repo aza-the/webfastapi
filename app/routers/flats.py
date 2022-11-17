@@ -34,9 +34,9 @@ async def get_flats_page(request: Request):
     )
 
 
-@router.post('/flats/', response_model=FlatForm)
+@router.post('/flats/')
 async def post_flats_page(
-    request: Request,
+    _: Request,
     form_data: FlatForm = Depends(),
     db: Session = Depends(get_session),
 ):
@@ -55,8 +55,6 @@ async def post_flats_page(
         type_of_walls=form_data.wall,
     )
 
-    prediction = str(normal_int(prediction))
-
     dict_for_pydantic_model_flat = {
         'district': form_data.district,
         'metro_name': form_data.underground_station,
@@ -70,17 +68,19 @@ async def post_flats_page(
         'fix': form_data.renovation,
         'type_of_building': form_data.construction_type,
         'type_of_walls': form_data.wall,
-        'price': prediction
-        * 1000000,  # multiplying by 1 000 000 to get price in millions
+        'price': int(prediction * 1000000)
+        # multiplying by 1 000 000 to get price in millions
     }
+
+    prediction = str(normal_int(prediction))
 
     try:
         flat = Flat(**dict_for_pydantic_model_flat)
-        create_record_flat(db, flat)
+        await create_record_flat(db, flat)
     except Exception as ex:
         print(ex, "POSTGRES OFF HIGH PROBABILITY")
 
-    return {"Рассчёт": prediction}
+    return {"Итог": prediction}
 
 
 # * XLSX FILE UPLOADING and RECEIVING page

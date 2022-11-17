@@ -88,7 +88,7 @@
                         <div class="formelement" id="formelement_underground">
                             <h1>Метро</h1>
                             <input class="form-control" type="text" name="underground_station" id="underground_station" placeholder="Станция метро">
-                            <input class="form-control" type="number" name="underground_time" id="underground_time" placeholder="Время в минутах">
+                            <input class="form-control" type="number" name="underground_time" id="underground_time" placeholder="Время в минутах" title="Введите время от 0 до 999" min="1" max="100" value="1" step="1">
                             <p class="get_type">Как добраться</p>
                             <table class="radiobtns">
                                 <td>
@@ -116,22 +116,22 @@
 
                         <div class="formelement" id="formelement_about_flat">
                             <h1>О квартире</h1>
-                            <input class="form-control" name="num_of_rooms" type="number" id="flats" placeholder="Кол-во комнат">
+                            <input class="form-control" name="num_of_rooms" type="number" id="flats" placeholder="Кол-во комнат" title="Введите количество комант в пределах от 0 до 3" min="0" max="3" step="1">
                             <table class="flat_option">
                                 <tr>
                                     <th>
-                                        <input class="form-control" name="flat_size" type="number" id="flat_size" step="0.01" placeholder="Размер квартиры">
+                                        <input class="form-control" name="flat_size" type="number" id="flat_size" placeholder="Размер квартиры" title="Введите площадь квартиры" min="0" max="150" step="0.1">
                                     </th>
                                     <th>
-                                        <input class="form-control" name="kitchen_size" type="number" id="kitchen_size" step="0.01" placeholder="Размер кухни">
+                                        <input class="form-control" name="kitchen_size" type="number" id="kitchen_size" placeholder="Размер кухни" title="Введите площадь кухни" min="0" max="70" step="0.1">
                                     </th>
                                 </tr>
                                 <tr>
                                     <th>
-                                        <input class="form-control" name="storey" type="number" id="storey" placeholder="Этаж">
+                                        <input class="form-control" name="storey" type="number" id="storey" placeholder="Этаж" title="Введите этаж" min="0" max="30" step="1">
                                     </th>
                                     <th>
-                                        <input class="form-control" name="storeys" type="number" id="storeys" placeholder="Этажность">
+                                        <input class="form-control" name="storeys" type="number" id="storeys" placeholder="Этажность" title="Введите этажность" min="0" max="30" step="1">
                                     </th>
                                 </tr>
                             </table>
@@ -195,7 +195,7 @@
 
                         <div class="formelement" id="formelement_about_building">
                             <h1>О здании</h1>
-                            <input class="form-control" name="construction_date" type="number" id="date_constrcucted" placeholder="Год постройки">
+                            <input class="form-control" name="construction_date" type="number" id="date_constrcucted" placeholder="Год постройки" title="Введите год постройки", min="1900", max="2022", step="1">
 
                             <table class="construction_type">
                                 <th>

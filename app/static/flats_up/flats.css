@@ -2148,3 +2148,258 @@ html, body {
 
 
 /*!!!!! end */
+
+#underground_time:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#underground_time:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#underground_time:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#underground_time:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#underground_time:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#underground_time:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#flats:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flats:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#flats:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flats:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#flats:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flats:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#flat_size:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flat_size:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#flat_size:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flat_size:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#flat_size:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#flat_size:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#kitchen_size:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#kitchen_size:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#kitchen_size:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#kitchen_size:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#kitchen_size:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#kitchen_size:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#storey:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storey:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#storey:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storey:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#storey:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storey:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+
+#storeys:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storeys:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#storeys:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storeys:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#storeys:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#storeys:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#date_constrcucted:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#date_constrcucted:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+#date_constrcucted:focus:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#date_constrcucted:focus:invalid {
+    border-color: red;
+    color: red;
+    box-shadow: none;
+}
+
+#date_constrcucted:focus:required:valid {
+    border-color: green;
+    color: black;
+    box-shadow: none;
+}
+
+#date_constrcucted:focus:required:invalid {
+    border-color: red;
+    color: black;
+    box-shadow: none;
+}
+
+

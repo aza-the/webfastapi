@@ -195,7 +195,7 @@ function submitForm() {
         })
         .then(response => {
             if(response.status >= 400){
-                return '"Итог":"Недостаточно данных"';
+                return '"Итог":"Ошибка ввода"';
             }
             return response.text();
         })
